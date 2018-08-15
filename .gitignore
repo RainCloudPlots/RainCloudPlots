@@ -1,3 +1,12 @@
+#### Don't sync all the output from the R tutorial
+tutorial_R/figs
+tutorial_R/*png
+tutorial_R/raincloud_tutorial_r.html
+tutorial_R/raincloud_tutorial_r.docx
+tutorial_R/raincloud_tutorial_r.pdf
+
+##### Standard Python gitignore
+# Copied from: https://github.com/github/gitignore/blob/master/Python.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
