@@ -24,12 +24,14 @@ from seaborn.axisgrid import FacetGrid, _facet_docs
 from seaborn.categorical import *
 from seaborn.categorical import _CategoricalPlotter, _CategoricalScatterPlotter,  _categorical_docs
 
-__all__ = ["boxplot", "half_violinplot", "violinplot", "stripplot", "swarmplot", "lvplot",
-           "pointplot", "barplot", "countplot", "factorplot"]
+__all__ = ["boxplot", "half_violinplot", "violinplot", "stripplot",
+           "swarmplot", "lvplot", "pointplot", "barplot", "countplot",
+           "factorplot"]
 
 
 class _StripPlotter(_CategoricalScatterPlotter):
     """1-d scatterplot with categorical organization."""
+
     def __init__(self, x, y, hue, data, order, hue_order,
                  jitter, dodge, orient, color, palette, width, move):
         """Initialize the plotter."""
@@ -57,9 +59,9 @@ class _StripPlotter(_CategoricalScatterPlotter):
             if self.plot_hues is None or not self.dodge:
 
                 if self.hue_names is None:
-                    hue_mask =  np.ones(group_data.size, np.bool)
+                    hue_mask = np.ones(group_data.size, np.bool)
                 else:
-                    hue_mask =  np.array([h in self.hue_names
+                    hue_mask = np.array([h in self.hue_names
                                          for h in self.plot_hues[i]], np.bool)
                     # Broken on older numpys
                     # hue_mask = np.in1d(self.plot_hues[i], self.hue_names)
@@ -136,6 +138,7 @@ class _Half_ViolinPlotter(_CategoricalPlotter):
 
     def estimate_densities(self, bw, cut, scale, scale_hue, gridsize):
         """Find the support and density for all of the data."""
+
         # Initialize data structures to keep track of plotting data
         if self.hue_names is None:
             support = []
@@ -294,6 +297,7 @@ class _Half_ViolinPlotter(_CategoricalPlotter):
         resulting maximum density will be 1 so that the curve can be
         properly multiplied by the violin width.
         """
+
         if self.hue_names is None:
             for d in density:
                 if d.size > 1:
