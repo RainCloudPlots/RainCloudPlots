@@ -1,5 +1,4 @@
 matplotlib
 numpy
-pandas
 scipy
 seaborn>=0.9
