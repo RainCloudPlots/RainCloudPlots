@@ -8,6 +8,7 @@ Code and tutorials to visualise your data that is both beautiful *and* statistic
 
 * [Read the preprint](#read-the-preprint)
 * [Give us feedback](#give-us-feedback)
+* [Citing raincloud plots](#citing-rain-cloud-plots)
 * [Interactive tutorials online](#interactive-tutorials-online)
 * [Installing and running on your local machine](#installing-and-running-on-your-local-machine)
   * [Download from github](#download-from-github) (needed for all tutorials)
@@ -26,6 +27,14 @@ You can read all about Raincloud Plots at ***insert link to preprint***.
 We'd love to hear your thoughts and any feedback you have. The best place to leave comments on the preprint and the project in general is at the PeerJ preprint. Just scroll to the bottom of that page and leave us feedback or ask a question.
 
 You can also submit a pull request to this repository if you find a bug! Just check out our [contributing guidelines](CONTRIBUTING.md) for help getting started.
+
+## Citing RainCloudPlots
+
+We really hope you find these tutorials helpful and want to use the code in your next paper or presentation! This repository is made available under the [MIT license](LICENSE) which means you're welcome to use and remix the contents so long as you credit the creators: Micah Allen, Davide Poggiali, Kirstie Whitaker, Tom Rhys Marshall and Rogier Kievit.
+
+We will add a zenodo archive of the codebase when our publication has been peer reviewed. For now, please cite the preprint, and get in touch with [Kirstie Whitaker](https://github.com/KirstieJane) if you need help citing a particular version of this codebase.
+
+> ***add citation***
 
 ## Interactive tutorials online
 
