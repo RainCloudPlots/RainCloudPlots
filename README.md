@@ -8,7 +8,7 @@ Code and tutorials to visualise your data that is both beautiful *and* statistic
 
 * [Read the preprint](#read-the-preprint)
 * [Give us feedback](#give-us-feedback)
-* [Citing raincloud plots](#citing-rain-cloud-plots)
+* [Citing raincloud plots](#citing-raincloudplots)
 * [Interactive tutorials online](#interactive-tutorials-online)
 * [Installing and running on your local machine](#installing-and-running-on-your-local-machine)
   * [Download from github](#download-from-github) (needed for all tutorials)
