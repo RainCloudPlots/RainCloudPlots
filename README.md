@@ -1,8 +1,31 @@
-# RaincloudPlots
+# Raincloud Plots
 
 Code and tutorials to visualise your data that is both beautiful *and* statistically valid.
 
-***add a lovely picture here***
+![](images/10repanvplot_cropped.jpg)
+
+### Table of contents
+
+* [Read the preprint](#read-the-preprint)
+* [Give us feedback](#give-us-feedback)
+* [Interactive tutorials online](#interactive-tutorials-online)
+* [Installing and running on your local machine](#installing-and-running-on-your-local-machine)
+  * [Download from github](#download-from-github) (needed for all tutorials)
+  * [Python environment](#python-environment)
+  * [R environment](#r-environment)
+  * [Matlab environment](#matlab-environment)
+
+## Read the preprint
+
+You can read all about Raincloud Plots at ***insert link to preprint***.
+
+> ***add citation***
+
+## Give us feedback
+
+We'd love to hear your thoughts and any feedback you have. The best place to leave comments on the preprint and the project in general is at the PeerJ preprint. Just scroll to the bottom of that page and leave us feedback or ask a question.
+
+You can also submit a pull request to this repository if you find a bug! Just check out our [contributing guidelines](CONTRIBUTING.md) for help getting started.
 
 ## Interactive tutorials online
 
@@ -13,7 +36,7 @@ You don't have to take our word for it, you can use Project Jupyter's [binder](h
 
 ## Installing and running on your local machine
 
-### Downloading from GitHub
+### Download from GitHub
 
 The easiest way to get the code you need is to [download](https://github.com/RainCloudPlots/RainCloudPlots/archive/master.zip) a copy of this repository to your computer. (You can also [clone the repository](https://help.github.com/articles/cloning-a-repository/) if you're used to using git and GitHub.)
 
@@ -47,7 +70,7 @@ From inside the `tutorial_python` direcotry, open up a jupyter notebook server b
 jupyter notebook
 ```
 
-Double click on `raincloud_tutorial_python.ipynb` in your browser and execute the cells in the notebook.
+Double click on `raincloud_tutorial_python.ipynb` in your browser, make sure you're using the `rainpy` kernel, and execute the cells in the notebook.
 
 ### R environment
 
@@ -66,6 +89,6 @@ From inside the `tutorial_R` directory, run `raincloud_tutorial_r.Rmd`.
 
 ### Matlab environment
 
-***to be completed***
+You'll need two dependencies to run the matlab tutorial: `cbrewer` which can be downloaded [here](https://uk.mathworks.com/matlabcentral/fileexchange/34087-cbrewer-colorbrewer-schemes-for-matlab) and `` which should be downloaded [from GitHub](https://github.com/CPernet/Robust_Statistical_Toolbox) in the same way you [downloaded this repository](#download-from-github).
 
-From inside the `tutorial_matlab` directory, run `raincloud_tutorial_matlab.mlx`.
+Put both of these dependencies in the `tutorial_matlab` folder and then, from inside that directory, run `raincloud_tutorial_matlab.mlx`.
