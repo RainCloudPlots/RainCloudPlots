@@ -1,6 +1,6 @@
 # Raincloud Plots
 
-Code and tutorials to visualise your data that is both beautiful *and* statistically valid.
+***Code and tutorials to visualise your data that is both beautiful *and* statistically valid.***
 
 ![](images/10repanvplot_cropped.jpg)
 
