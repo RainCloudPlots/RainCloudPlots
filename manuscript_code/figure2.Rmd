@@ -1,0 +1,62 @@
+---
+title: "Figure 2: alternatives to barplots"
+output: html_notebook
+---
+```{r}
+#Load packages
+source('../tutorial_R/summarySE.R')
+source('../tutorial_R/simulateData.R')
+source('../tutorial_R/R_rainclouds.R')
+
+```
+
+```{r}
+head(summary_simdat)
+```
+
+```{r}
+
+p1 <- ggplot(data = summary_simdat, aes(x = group, y = score_mean, fill = group)) +
+  geom_bar(stat = "identity", width = .5) +
+  geom_errorbar(data = summary_simdat, aes(ymin = score_mean-ci, ymax = score_mean+ci, width = .05))+
+  geom_point(data = simdat, aes(y = score, x = group, fill = group), alpha = 0.4, width = .1, position = position_jitter(.1), size = .25) +
+  guides(fill=FALSE) +
+  ylab("score mean") +
+  theme_cowplot()+
+  ggtitle("Barplot with Data")
+
+p2 <- ggplot(data = simdat, aes(x = group, y = score, fill = group)) +
+  geom_dotplot(binaxis = 'y', stackdir = 'center', binwidth = 5, dotsize = .75, alpha = .5) +
+  stat_summary(fun.data=mean_sdl, fun.args = list(mult=1), 
+                 geom="pointrange", color="red") +
+  guides(fill=FALSE) +
+  theme_cowplot()+
+  ggtitle("Dotplot with Mean and CI")
+
+
+p3 <- ggplot(data = simdat, aes(x = group, y = score, fill = group)) +
+ # geom_jitter(data = simdat, alpha = 0.2, width = .2, aes(fill = group)) +
+  geom_violin(trim = FALSE)+
+  geom_boxplot(outlier.shape = NA, alpha = 0.3, width = .2) +
+  guides(fill=FALSE) +
+  theme_cowplot()+
+  ggtitle("Violin and Boxplot")
+
+
+
+
+
+all_plot <- plot_grid(p1, p2, p3, labels = c("A", "B", "C"), nrow = 1) +
+  ggtitle("Various Plots")
+
+save_plot(
+  "../figs/figure_2.jpg", all_plot,
+  ncol = 3, # we're saving a grid plot of 2 columns
+  nrow = 1, # and 2 rows
+  base_asp = 1.35 # aspect ratio of 1.35 for individual figures in the grid 
+)
+
+all_plot
+
+```
+

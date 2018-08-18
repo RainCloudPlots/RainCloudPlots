@@ -1,0 +1,67 @@
+---
+title: "Figure 1 - bar bar plots example"
+output: html_notebook
+---
+
+
+```{r}
+#Load packages
+source('../tutorial_R/summarySE.R')
+source('../tutorial_R/simulateData.R')
+source('../tutorial_R/R_rainclouds.R')
+```
+
+```{r}
+
+head(summary_simdat)
+
+```
+
+
+```{r}
+
+p1 <- ggplot(summary_simdat, aes(x = group, y = score_mean, fill = group)) +
+  geom_bar(stat = "identity") +
+  geom_errorbar(data = summary_simdat, aes(ymin = score_mean - se, ymax = score_mean+se), width = .2)+
+  guides(fill=FALSE)+
+  ylim(0, 60) +
+  theme_cowplot()+
+  ggtitle("Barplot ± SEM")+
+  ylab("score mean")
+#  labs(x ="", y = "")
+
+#Histogram
+
+p2 <- ggplot(simdat, aes(x = score, fill = group)) +
+  geom_histogram(binwidth = 2.5) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  facet_grid(. ~ group) +
+  guides(fill=FALSE)+
+  theme_cowplot()+
+  ggtitle("Histogram")
+ # labs(x ="", y = "")
+
+#boxplot
+
+p3 <- ggplot(simdat, aes(x = group, y = score, fill = group)) +
+  geom_boxplot()+
+  guides(fill=FALSE)+
+  theme_cowplot()+
+  ggtitle("Boxplot")
+ # labs(x ="", y = "")
+ # facet_grid(. ~ group)
+
+
+all_plot <- plot_grid(p1, p3, p2, labels = c("A", "B", "C"), nrow = 1)
+
+save_plot(
+  "../figs/figure_1.jpg", all_plot,
+  ncol = 3, # we're saving a grid plot of 2 columns
+  nrow = 1, # and 2 rows
+  base_asp = 1.35 # aspect ratio of 1.35 for individual figures in the grid 
+)
+
+
+all_plot
+```
+

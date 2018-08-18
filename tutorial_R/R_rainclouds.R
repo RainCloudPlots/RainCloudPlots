@@ -5,7 +5,7 @@
 
 
 #check if required packages are installed
-packages <- c("cowplot", "readr", "ggplot2" , "dplyr", "lavaan", "smooth")
+packages <- c("cowplot", "readr", "ggplot2" , "dplyr", "lavaan", "smooth", "Hmisc")
 if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
   install.packages(setdiff(packages, rownames(installed.packages())))  
 }
