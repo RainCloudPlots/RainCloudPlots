@@ -18,6 +18,7 @@ source("R_rainclouds.R")
 source("summarySE.R")
 source("simulateData.R")
 library(readr)
+library(cowplot)
 # width and height variables for saved plots
 w = 6
 h = 3
