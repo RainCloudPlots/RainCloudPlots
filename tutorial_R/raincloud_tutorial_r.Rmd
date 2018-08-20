@@ -2,6 +2,7 @@
 title: "Rainclouds Tutorial in R"
 output:
   html_document: default
+  pdf_document: default
   word_document: default
 ---
 
