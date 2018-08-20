@@ -1701,19 +1701,10 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0xvYWQgcGFja2FnZXNcbnNvdXJjZSgnLi4vdHV0b3JpYWxfUi9zdW1tYXJ5U0UuUicpXG5zb3VyY2UoJy4uL3R1dG9yaWFsX1Ivc2ltdWxhdGVEYXRhLlInKVxuc291cmNlKCcuLi90dXRvcmlhbF9SL1JfcmFpbmNsb3Vkcy5SJylcbmBgYCJ9 -->
-<pre class="r"><code>#Load packages
-source('../tutorial_R/summarySE.R')
-source('../tutorial_R/simulateData.R')
-source('../tutorial_R/R_rainclouds.R')</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVhZChzdW1tYXJ5X3NpbWRhdClcbmBgYCJ9 -->
-<pre class="r"><code>head(summary_simdat)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NywibnJvdyI6Mn0sInJkZiI6Ikg0c0lBQUFBQUFBQUJndHlpVERpaXVCaVlHQmdZbUJtWVdSZ1lnWXlXWmlBQkNNREN3TW5pSzVnWUdBV0JqTFlnVFF2V0NGSUVreWpLR1RMU1MxTHpTa0dzZ1RBc2xCUjk2TDgwZ0pERko0Um1rN1c1SnpFWXBoR3VIRnBpY2tsK1VWQTFqOGc1Z01aNlpEdndBQUNNQm91N3JGcngvdjVPbThjUEg4YzNUR1o1UmRjM0RXK29uMjd3emtIcjhodXM0UDd3K0RpbHU1ekh5VWZFblN3RkRBdWZNYjRDQ1p1LzNQS2hZc01DbW4yUDJQMnFtbHl4Y0hWY3hvS3Fyd3lDM0RnK0hsRDZkWVZOblRuNXlYbXBzS2N6dzRUVEFmNUZCYUdmbEFHVjNGeWZsRnFmRzVxWWg1VWhBY21rcElKRjJNcVRvR3pVbUdzNUV3MGF6bUw4c3YxWUZaamlSam0vMmdoeXBXU1dKS29sMVlFMUFJSlZSVGoyUE1MU2pMejg0Q0dNWUZpbXhWTk0yTVJtZ0IvYVI3SThoVGQ1SXpTdkd4ZEk1QUZVQWN3UWgwRWRReWN6UTZ4a2dYbU1GWllWS2ZtcFdmbXdYekttcE9ZbEpvRDVmQUJQUW4ybzE1QlVXWmVDY3duUU5GaXZaTDhra1NZT3E3ay9CeVlDQ1RGL0FNQVRtbk9NTnNDQUFBPSJ9 -->
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
@@ -1723,26 +1714,9 @@ source('../tutorial_R/R_rainclouds.R')</code></pre>
 <!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucDEgPC0gZ2dwbG90KHNpbWRhdCxhZXMoeD1ncm91cCx5PXNjb3JlLCBmaWxsID0gZ3JvdXAsIGNvbG91ciA9IGdyb3VwKSkrXG4gIGdlb21fZmxhdF92aW9saW4ocG9zaXRpb24gPSBwb3NpdGlvbl9udWRnZSh4ID0gLjI1LCB5ID0gMCksYWRqdXN0ID0yLCB0cmltID0gVFJVRSkrXG4gIGdlb21fcG9pbnQocG9zaXRpb24gPSBwb3NpdGlvbl9qaXR0ZXIod2lkdGggPSAuMTUpLCBzaXplID0gLjI1KStcbiAgZ2VvbV9ib3hwbG90KGFlcyh4ID0gYXMubnVtZXJpYyhncm91cCkrMC4yNSwgeSA9IHNjb3JlKSxvdXRsaWVyLnNoYXBlID0gTkEsIGFscGhhID0gMC4zLCB3aWR0aCA9IC4xLCBjb2xvdXIgPSBcIkJMQUNLXCIsIG51ZGdlX3ggPSAxLCBudWRnZV95ID0gMikgK1xuICBndWlkZXMoZmlsbD1GQUxTRSwgY29sb3VyID0gRkFMU0UpK1xuICMgZ2d0aXRsZShcIlJhaW5jbG91ZCBQbG90XCIpK1xuICB5bGFiKCdzY29yZScpICtcbiAgeGxhYignZ3JvdXAnKSArXG4gIHRoZW1lX2Nvd3Bsb3QoKStcbiAgY29vcmRfZmxpcCgpIFxuYGBgIn0= -->
-<pre class="r"><code>p1 &lt;- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
-  geom_flat_violin(position = position_nudge(x = .25, y = 0),adjust =2, trim = TRUE)+
-  geom_point(position = position_jitter(width = .15), size = .25)+
-  geom_boxplot(aes(x = as.numeric(group)+0.25, y = score),outlier.shape = NA, alpha = 0.3, width = .1, colour = &quot;BLACK&quot;, nudge_x = 1, nudge_y = 2) +
-  guides(fill=FALSE, colour = FALSE)+
- # ggtitle(&quot;Raincloud Plot&quot;)+
-  ylab('score') +
-  xlab('group') +
-  theme_cowplot()+
-  coord_flip() </code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiSWdub3JpbmcgdW5rbm93biBwYXJhbWV0ZXJzOiBudWRnZV94LCBudWRnZV95XG4ifQ== -->
 <pre><code>Ignoring unknown parameters: nudge_x, nudge_y</code></pre>
 <!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyAgbGFicyh4ID1cIlwiLCB5ID0gXCJcIilcbmdnc2F2ZShmaWxlbmFtZSA9IFwiLi4vZmlncy9maWd1cmVfMy5qcGdcIiwgd2lkdGggPSA2LCBoZWlnaHQgPSAzKVxucDFcbmBgYCJ9 -->
-<pre class="r"><code>#  labs(x =&quot;&quot;, y = &quot;&quot;)
-ggsave(filename = &quot;../figs/figure_3.jpg&quot;, width = 6, height = 3)
-p1</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
