@@ -1,3 +1,6 @@
+##### Don't push up the figures for the R tutorial
+tutorial_R/figs
+
 ##### Standard Python gitignore
 # Copied from: https://github.com/github/gitignore/blob/master/Python.gitignore
 # Byte-compiled / optimized / DLL files
