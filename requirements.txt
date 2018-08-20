@@ -2,3 +2,4 @@ matplotlib
 numpy
 scipy
 seaborn>=0.9
+ptitprince==0.1.3
