@@ -1,6 +1,6 @@
 # Contributing to RainCloud Plots
 
-The point of our tutorial is to **help you visualise your data that is both beautiful *and* statistically valid **. We hope that the preprint and the tutorials in this repository will make that as easy as possible.
+The point of our tutorial is to **help you visualise your data that is both beautiful *and* statistically valid**. We hope that the preprint and the tutorials in this repository will make that as easy as possible.
 
 ## Table of contents
 

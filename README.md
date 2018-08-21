@@ -63,11 +63,13 @@ First, if you don't already have it, we recommend that you install [anaconda](ht
 Then, from inside the `RainCloudPlots` folder type:
 
 ```
-conda env create -n rainpy python=3.6 -f requirements.txt
-
-conda install nb_conda
+conda create --name rainpy python=3.6
 
 activate rainpy
+
+pip install -r requirements.txt
+
+conda install nb_conda
 ```
 
 This will create (and activate) a conda environment with all the the specific packages you need to run the tutorial.
