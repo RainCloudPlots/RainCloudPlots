@@ -1,7 +1,7 @@
 ---
 title: "Rainclouds Tutorial in R"
 output:
-  html_document: 
+  html_document:
     keep_md: yes
   pdf_document: default
   word_document: default

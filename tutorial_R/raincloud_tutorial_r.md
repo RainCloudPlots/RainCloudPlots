@@ -1,7 +1,7 @@
 ---
 title: "Rainclouds Tutorial in R"
 output:
-  html_document: 
+  html_document:
     keep_md: yes
   pdf_document: default
   word_document: default
@@ -12,7 +12,7 @@ output:
 ## How to make it rain
 This tutorial will walk you through the process of transforming your barplots into rainclouds, and also show you how to customize your rainclouds for various options such as ordinal or repeated measures data.
 
-If you'd like to see this notebook with the output rendered, checkout [raincloud_tutorial_r.html](http://htmlpreview.github.io/?https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.html) or [raincloud_tutorial_r.pdf](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.pdf).
+If you'd like to see this notebook with the output rendered, checkout [raincloud_tutorial_r.md](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.md) or [raincloud_tutorial_r.pdf](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.pdf).
 
 First, we'll run the included "R_rainclouds" script, which will set-up the split-half violin option in ggplot, as well as simulate some data for our figures:
 
