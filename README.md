@@ -2,6 +2,8 @@
 
 [![Binder](https://img.shields.io/badge/binder%20tutorial-python-fb62f6.svg)](https://mybinder.org/v2/gh/RainCloudPlots/RainCloudPlots/master?filepath=tutorial_python%2Fraincloud_tutorial_python.ipynb)
 [![Binder](https://img.shields.io/badge/binder%20tutorial-R-c62e65.svg)](https://mybinder.org/v2/gh/RainCloudPlots/RainCloudPlots/master?urlpath=rstudio)
+[![DOI](https://zenodo.org/badge/144041501.svg)](https://zenodo.org/badge/latestdoi/144041501)
+
 
 ***Code and tutorials to visualise your data that is both beautiful *and* statistically valid.***
 
@@ -35,7 +37,15 @@ You can also submit a pull request to this repository if you find a bug! Just ch
 
 We really hope you find these tutorials helpful and want to use the code in your next paper or presentation! This repository is made available under the [MIT license](LICENSE) which means you're welcome to use and remix the contents so long as you credit the creators: [Micah Allen](https://twitter.com/micahgallen?lang=en), [Davide Poggiali](https://twitter.com/dav1d3p0g?lang=en), [Kirstie Whitaker](https://twitter.com/kirstie_j?lang=en), [Tom Rhys Marshall](https://twitter.com/tomrhysmarshall?lang=en) and [Rogier Kievit](https://twitter.com/rogierk?lang=en).
 
-We will add a zenodo archive of the codebase when our publication has been peer reviewed. For now, please cite the preprint, and get in touch with [Kirstie Whitaker](https://github.com/KirstieJane) if you need help citing a particular version of this codebase.
+There is a [zenodo archive](https://zenodo.org/badge/latestdoi/144041501) of the codebase and we ask that you cite the preprint along with the version of the code you used when referring to RainCloud plots.
+
+
+> Allen M, Poggiali D, Whitaker K, Marshall TR, Kievit R. (2018) Raincloud plots: a multi-platform tool for robust data visualization. PeerJ Preprints 6:e27137v1 https://doi.org/10.7287/peerj.preprints.27137v1
+>
+> Allen M, Poggiali D, Whitaker K, Marshall TR, Kievit R. (2018) RainCloudPlots tutorials and codebase (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.1402959
+
+Get in touch with [Kirstie Whitaker](https://github.com/KirstieJane) if you need help citing a particular version of this codebase.
+
 
 ## Interactive tutorials online
 
