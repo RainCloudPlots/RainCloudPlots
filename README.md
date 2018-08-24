@@ -21,30 +21,30 @@
 
 ## Read the preprint
 
-You can read all about Raincloud Plots at ***insert link to preprint***.
+You can read all about Raincloud Plots in our [preprint at PeerJ](https://peerj.com/preprints/27137v1/).
 
-> ***add citation***
+> Allen M, Poggiali D, Whitaker K, Marshall TR, Kievit R. (2018) Raincloud plots: a multi-platform tool for robust data visualization. PeerJ Preprints 6:e27137v1 https://doi.org/10.7287/peerj.preprints.27137v1
 
 ## Give us feedback
 
-We'd love to hear your thoughts and any feedback you have. The best place to leave comments on the preprint and the project in general is at the PeerJ preprint. Just scroll to the bottom of that page and leave us feedback or ask a question.
+We'd love to hear your thoughts and any feedback you have. The best place to leave comments on the preprint and the project in general is [at the PeerJ preprint](https://peerj.com/preprints/27137v1/). Just scroll to the bottom of that page and leave us feedback or ask a question.
 
 You can also submit a pull request to this repository if you find a bug! Just check out our [contributing guidelines](CONTRIBUTING.md) for help getting started.
 
 ## Citing RainCloudPlots
 
-We really hope you find these tutorials helpful and want to use the code in your next paper or presentation! This repository is made available under the [MIT license](LICENSE) which means you're welcome to use and remix the contents so long as you credit the creators: Micah Allen, Davide Poggiali, Kirstie Whitaker, Tom Rhys Marshall and Rogier Kievit.
+We really hope you find these tutorials helpful and want to use the code in your next paper or presentation! This repository is made available under the [MIT license](LICENSE) which means you're welcome to use and remix the contents so long as you credit the creators: [Micah Allen](https://twitter.com/micahgallen?lang=en), [Davide Poggiali](https://twitter.com/dav1d3p0g?lang=en), [Kirstie Whitaker](https://twitter.com/kirstie_j?lang=en), [Tom Rhys Marshall](https://twitter.com/tomrhysmarshall?lang=en) and [Rogier Kievit](https://twitter.com/rogierk?lang=en).
 
 We will add a zenodo archive of the codebase when our publication has been peer reviewed. For now, please cite the preprint, and get in touch with [Kirstie Whitaker](https://github.com/KirstieJane) if you need help citing a particular version of this codebase.
-
-> ***add citation***
 
 ## Interactive tutorials online
 
 You don't have to take our word for it, you can use Project Jupyter's [binder](https://mybinder.org) to interact with the python and R tutorials yourself.
 
-* Python tutorial: [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/RainCloudPlots/RainCloudPlots/master?filepath=tutorial_python%2Fraincloud_tutorial_python.ipynb)
-* R markdown tutorial: [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/RainCloudPlots/RainCloudPlots/master?urlpath=rstudio)
+Just follow either of the links below.
+
+* [![Binder](https://img.shields.io/badge/binder%20tutorial-python-fb62f6.svg)](https://mybinder.org/v2/gh/RainCloudPlots/RainCloudPlots/master?filepath=tutorial_python%2Fraincloud_tutorial_python.ipynb) will open the python tutorial as an online jupyter notebook.
+* [![Binder](https://img.shields.io/badge/binder%20tutorial-R-c62e65.svg)](https://mybinder.org/v2/gh/RainCloudPlots/RainCloudPlots/master?urlpath=rstudio) will open an online version of RStudio. You'll need to navigate to the [R tutorial](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.Rmd) (`/tutorial_R/raincloud_tutorial_r.Rmd`) from within RStudio and open the file to run it.
 
 ## Installing and running on your local machine
 
