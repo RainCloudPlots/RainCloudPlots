@@ -113,7 +113,7 @@ From inside the `tutorial_R` directory, run `raincloud_tutorial_r.Rmd`.
 
 ### Matlab environment
 
-You'll need two dependencies to run the matlab tutorial: `cbrewer` which can be downloaded [here](https://uk.mathworks.com/matlabcentral/fileexchange/34087-cbrewer-colorbrewer-schemes-for-matlab) and `` which should be downloaded [from GitHub](https://github.com/CPernet/Robust_Statistical_Toolbox) in the same way you [downloaded this repository](#download-from-github).
+You'll need two dependencies to run the matlab tutorial: `cbrewer` which can be downloaded [here](https://uk.mathworks.com/matlabcentral/fileexchange/34087-cbrewer-colorbrewer-schemes-for-matlab) and `robust_statistical_toolbox` which should be downloaded [from GitHub](https://github.com/CPernet/Robust_Statistical_Toolbox) in the same way you [downloaded this repository](#download-from-github).
 
 **NOTE**: the robust statistical toolbox is made available under the [GNU General Public License](https://github.com/CPernet/Robust_Statistical_Toolbox/blob/master/LICENSE) which is a ["copyleft"](https://en.wikipedia.org/wiki/Copyleft) license. GPL is compatible with [MIT](LICENSE) (the license for this repository) but supersedes it. Make sure that you are not violating this license when you run the matlab tutorial. :smiley:
 
