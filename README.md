@@ -68,6 +68,12 @@ Once you have the repository downloaded and unzipped, jump to the instructions f
 
 ### Python environment
 
+The code for RainCloud plots is packaged in the [ptitprince](https://github.com/pog87/PtitPrince) python package. It can be installed via pip using: `pip install ptitprince`.
+
+There are a couple of other dependencies for the raincloud plots tutorial: they're listed in the [requirements.txt](requirements.txt) file in this repository. Note in particular that you must have [seaborn](https://seaborn.pydata.org/) version `0.9.0` or above to run the tutorial.
+
+The following instructions will help you install all the necessary dependencies and get up and running really easily :sparkles:.
+
 First, if you don't already have it, we recommend that you install [anaconda](https://conda.io/docs/user-guide/install/index.html) which will automatically install the [jupyter notebook](https://jupyter.readthedocs.io/en/latest/install.html#installing-jupyter-using-anaconda-and-conda) for you.
 
 Then, from inside the `RainCloudPlots` folder type:
@@ -86,7 +92,6 @@ This will create (and activate) a conda environment with all the the specific pa
 
 A little note about jupyter notebooks and conda environments. If you have installed `nb_conda` as described above, you'll be able to choose the `rainpy` kernel in your jupyter notebook once it's open. Don't forget to switch from the default kernel when you open up the notebook.
 
-You can install the requirements individually, but do note that you must have [seaborn](https://seaborn.pydata.org/) version `0.9.0` or above to run the tutorial.
 
 From inside the `tutorial_python` direcotry, open up a jupyter notebook server by typing:
 
