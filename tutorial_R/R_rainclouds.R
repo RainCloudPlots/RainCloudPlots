@@ -3,17 +3,8 @@
 ### It relies largely on code previously written by David Robinson 
 ### (https://gist.github.com/dgrtwo/eb7750e74997891d7c20) and ggplot2 by H Wickham
 
-
-#check if required packages are installed
-packages <- c("cowplot", "readr", "ggplot2" , "dplyr", "lavaan", "smooth", "Hmisc")
-if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
-  install.packages(setdiff(packages, rownames(installed.packages())))  
-}
-
 #Load packages
 library(ggplot2)
-library(dplyr)
-library(lavaan)
 
 # Defining the geom_flat_violin function. Note: the below code modifies the 
 # existing github page by removing a parenthesis in line 50

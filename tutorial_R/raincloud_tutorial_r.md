@@ -18,11 +18,14 @@ First, we'll run the included "R_rainclouds" script, which will set-up the split
 
 
 ```r
+library(cowplot)
+library(dplyr)
+library(readr)
+
 source("R_rainclouds.R")
 source("summarySE.R")
 source("simulateData.R")
-library(readr)
-library(cowplot)
+
 # width and height variables for saved plots
 w = 6
 h = 3
@@ -50,9 +53,10 @@ p1 <- ggplot(summary_simdat, aes(x = group, y = score_mean, fill = group))+
   ylim(0, 80)+
   ylab('Score')+xlab('Group')+theme_cowplot()+
   ggtitle("Figure 1: Barplot +/- SEM")
-  ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
 
-  p1
+ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
+
+p1
 ```
 
 ![](figs/barplot-1.png)<!-- -->
@@ -66,8 +70,9 @@ p2 <- ggplot(simdat,aes(x=group,y=score))+
   geom_flat_violin(position = position_nudge(x = .2, y = 0),adjust =2)+
   geom_point(position = position_jitter(width = .15), size = .25)+
   ylab('Score')+xlab('Group')+theme_cowplot()+
-  ggtitle('Figure 2: Basic Rainclouds or Little Prince Plot')+
-  ggsave('../figs/tutorial_R/2basic.png', width = w, height = h)
+  ggtitle('Figure 2: Basic Rainclouds or Little Prince Plot')
+
+ggsave('../figs/tutorial_R/2basic.png', width = w, height = h)
 
 p2
 ```
@@ -83,8 +88,9 @@ p3 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   geom_flat_violin(position = position_nudge(x = .2, y = 0),adjust = 2)+
   geom_point(position = position_jitter(width = .15), size = .25)+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE)+
-  ggtitle('Figure 3: The Basic Raincloud with Colour')+
-  ggsave('../figs/tutorial_R/3pretty.png', width = w, height = h)
+  ggtitle('Figure 3: The Basic Raincloud with Colour')
+
+ggsave('../figs/tutorial_R/3pretty.png', width = w, height = h)
 
 p3
 ```
@@ -101,9 +107,10 @@ p4 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   geom_point(position = position_jitter(width = .15), size = .25)+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE) +
   ggtitle('Figure 4: Unsmooth Rainclouds')
-  ggsave('../figs/tutorial_R/4unsmooth.png', width = w, height = h)
 
-  p4
+ggsave('../figs/tutorial_R/4unsmooth.png', width = w, height = h)
+
+p4
 ```
 
 ![](figs/unsmooth_rc-1.png)<!-- -->
@@ -120,9 +127,10 @@ p5 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   geom_boxplot(aes(x = as.numeric(group)+0.25, y = score),outlier.shape = NA, alpha = 0.3, width = .1, colour = "BLACK") +
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE, colour = FALSE) +
   ggtitle("Figure 5: Raincloud Plot w/Boxplots")
-  ggsave('../figs/tutorial_R/5boxplots.png', width = w, height = h)
 
-  p5
+ggsave('../figs/tutorial_R/5boxplots.png', width = w, height = h)
+
+p5
 ```
 
 ![](figs/boxplot_rc-1.png)<!-- -->
@@ -140,7 +148,8 @@ p6 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 6: Change in Colour Palette")
-  ggsave('../figs/tutorial_R/6boxplots.png', width = w, height = h)
+
+ggsave('../figs/tutorial_R/6boxplots.png', width = w, height = h)
   
 p6
 ```
@@ -163,7 +172,8 @@ p7 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 7: Raincloud Plot with Mean ± 95% CI")
-  ggsave('../figs/tutorial_R/7meanplot.png', width = w, height = h)
+
+ggsave('../figs/tutorial_R/7meanplot.png', width = w, height = h)
 
 p7
 ```
@@ -181,10 +191,22 @@ simdat_round<-simdat
 simdat_round$score<-round(simdat$score,0) 
 
 #Striated/grouped when no jitter applied
-ap1 <- ggplot(simdat_round,aes(x=group,y=score,fill=group,col=group))+geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =4)+geom_point(size = 1, alpha = 0.6)+ylab('Score')+scale_fill_brewer(palette = "Dark2")+scale_colour_brewer(palette = "Dark2")+guides(fill = FALSE, col = FALSE)+ggtitle('Striated')
+ap1 <- ggplot(simdat_round,aes(x=group,y=score,fill=group,col=group))+
+    geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =4)+
+    geom_point(size = 1, alpha = 0.6)+ylab('Score')+
+    scale_fill_brewer(palette = "Dark2")+
+    scale_colour_brewer(palette = "Dark2")+
+    guides(fill = FALSE, col = FALSE)+
+    ggtitle('Striated')
 
 #Added jitter helps
-ap2 <- ggplot(simdat_round,aes(x=group,y=score,fill=group,col=group))+geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .4,adjust =4)+geom_point(position=position_jitter(width = .15),size = 1, alpha = 0.4)+ylab('Score')+scale_fill_brewer(palette = "Dark2")+scale_colour_brewer(palette = "Dark2")+guides(fill = FALSE, col = FALSE)+ggtitle('Added jitter')
+ap2 <- ggplot(simdat_round,aes(x=group,y=score,fill=group,col=group))+
+    geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .4,adjust =4)+
+    geom_point(position=position_jitter(width = .15),size = 1, alpha = 0.4)+ylab('Score')+
+    scale_fill_brewer(palette = "Dark2")+
+    scale_colour_brewer(palette = "Dark2")+
+    guides(fill = FALSE, col = FALSE)+
+    ggtitle('Added jitter')
 
 all_plot <- plot_grid(ap1, ap2, labels="AUTO")
 
@@ -217,7 +239,8 @@ p9 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 9: Complex Raincloud Plots with Facet Wrap")
-  ggsave('../figs/tutorial_R/9facetplot.png', width = w, height = h)
+
+ggsave('../figs/tutorial_R/9facetplot.png', width = w, height = h)
 
 p9
 ```
@@ -263,8 +286,9 @@ p10 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 10: Repeated Measures Factorial Rainclouds")
-  ggsave('../figs/tutorial_R/10repanvplot.png', width = w, height = h)
-  #coord_flip()+
+
+ggsave('../figs/tutorial_R/10repanvplot.png', width = w, height = h)
+
 p10
 ```
 
@@ -286,8 +310,8 @@ p11 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 11: Repeated Measures - Factorial (Extended)")
-  ggsave('../figs/tutorial_R/11repanvplot2.png', width = w, height = h)
-  #coord_flip()+
+
+ggsave('../figs/tutorial_R/11repanvplot2.png', width = w, height = h)
 
 p11
 ```
@@ -311,7 +335,8 @@ p12 <- ggplot(rep_data, aes(x = group, y = score, fill = time)) +
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 12: Repeated Measures - Factorial (Extended)") +
   coord_flip()
-  ggsave('../figs/tutorial_R/12repanvplot3.png', width = w, height = h)
+
+ggsave('../figs/tutorial_R/12repanvplot3.png', width = w, height = h)
 
 p12
 ```
