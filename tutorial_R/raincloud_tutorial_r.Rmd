@@ -12,6 +12,19 @@ knitr::opts_chunk$set(fig.width=6, fig.height=3, fig.path='figs/',
                       echo=FALSE, warning=FALSE, message=FALSE)
 ```
 
+## Package dependencies
+
+Make sure we have the packages we need, and install them if they are missing.
+
+```{r package setup, include = TRUE, echo = TRUE}
+packages <- c("ggplot2", "dplyr", "lavaan", "plyr", "cowplot", "rmarkdown", 
+              "readr", "caTools", "bitops")
+
+if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+  install.packages(setdiff(packages, rownames(installed.packages())))  
+}
+```
+
 ## How to make it rain
 This tutorial will walk you through the process of transforming your barplots into rainclouds, and also show you how to customize your rainclouds for various options such as ordinal or repeated measures data.
 
@@ -50,7 +63,9 @@ p1 <- ggplot(summary_simdat, aes(x = group, y = score_mean, fill = group))+
   ggtitle("Figure 1: Barplot +/- SEM")
 
 ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
+```
 
+```{r figure 1}
 p1
 ```
 
@@ -65,7 +80,9 @@ p2 <- ggplot(simdat,aes(x=group,y=score))+
   ggtitle('Figure 2: Basic Rainclouds or Little Prince Plot')
 
 ggsave('../figs/tutorial_R/2basic.png', width = w, height = h)
+```
 
+```{r figure 2}
 p2
 ```
 
@@ -80,7 +97,9 @@ p3 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   ggtitle('Figure 3: The Basic Raincloud with Colour')
 
 ggsave('../figs/tutorial_R/3pretty.png', width = w, height = h)
+```
 
+```{r figure 3}
 p3
 ```
 
@@ -95,7 +114,9 @@ p4 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   ggtitle('Figure 4: Unsmooth Rainclouds')
 
 ggsave('../figs/tutorial_R/4unsmooth.png', width = w, height = h)
+```
 
+```{r figure 4}
 p4
 ```
 
@@ -112,7 +133,9 @@ p5 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   ggtitle("Figure 5: Raincloud Plot w/Boxplots")
 
 ggsave('../figs/tutorial_R/5boxplots.png', width = w, height = h)
+```
 
+```{r figure 5}
 p5
 ```
 
@@ -130,11 +153,11 @@ p6 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   ggtitle("Figure 6: Change in Colour Palette")
 
 ggsave('../figs/tutorial_R/6boxplots.png', width = w, height = h)
-  
-p6
 ```
 
-
+```{r figure 6}
+p6
+```
 
 Alternatively, you may prefer to simply plot mean or median with standard confidence intervals. Here we'll plot the mean as well as 95% confidence intervals, which we've calculated using the included SummarySE function, by overlaying them on of our clouds:
 
@@ -151,7 +174,9 @@ p7 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   ggtitle("Figure 7: Raincloud Plot with Mean ± 95% CI")
 
 ggsave('../figs/tutorial_R/7meanplot.png', width = w, height = h)
+```
 
+```{r figure 7}
 p7
 ```
 
@@ -192,6 +217,9 @@ title <- ggdraw() +
 all_plot_final <- plot_grid(title, all_plot, ncol = 1, rel_heights = c(0.1, 1)) # rel_heights values control title margins
 
 ggsave('../figs/tutorial_R/8allplot.png', width = w, height = h)
+```
+
+```{r figure 8}
 all_plot_final
 ```
 
@@ -212,7 +240,9 @@ p9 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   ggtitle("Figure 9: Complex Raincloud Plots with Facet Wrap")
 
 ggsave('../figs/tutorial_R/9facetplot.png', width = w, height = h)
+```
 
+```{r figure 9}
 p9
 ```
 
@@ -230,7 +260,6 @@ sumrepdat <- summarySE(rep_data, measurevar = "score", groupvars=c("group", "tim
 
 
 head(sumrepdat)
-
 ```
 
 Now, we'll plot our rainclouds with boxplots again, this time adding some dodge so we can better emphasize differences between our factors and factor levels. Note that here we need to nudge the point x-axis as a numeric valuable, as this work around does not currently work for boxplots with multiple factors:
@@ -246,7 +275,9 @@ p10 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   ggtitle("Figure 10: Repeated Measures Factorial Rainclouds")
 
 ggsave('../figs/tutorial_R/10repanvplot.png', width = w, height = h)
+```
 
+```{r figure 10}
 p10
 ```
 
@@ -267,7 +298,9 @@ p11 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   ggtitle("Figure 11: Repeated Measures - Factorial (Extended)")
 
 ggsave('../figs/tutorial_R/11repanvplot2.png', width = w, height = h)
+```
 
+```{r figure 11}
 p11
 ```
 
@@ -289,7 +322,9 @@ p12 <- ggplot(rep_data, aes(x = group, y = score, fill = time)) +
   coord_flip()
 
 ggsave('../figs/tutorial_R/12repanvplot3.png', width = w, height = h)
+```
 
+```{r figure 12}
 p12
 ```
 

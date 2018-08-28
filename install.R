@@ -5,3 +5,6 @@ install.packages("plyr")
 install.packages("cowplot")
 install.packages("rmarkdown")
 install.packages("readr")
+install.packages("caTools")
+install.packages("bitops")
+
