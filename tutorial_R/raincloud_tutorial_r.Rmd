@@ -1,9 +1,9 @@
 ---
 title: "Rainclouds Tutorial in R"
 output:
+  pdf_document: default
   html_document:
     keep_md: yes
-  pdf_document: default
   word_document: default
 ---
 
@@ -67,7 +67,7 @@ ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
 
 Lets look at the plot in line too :)
 
-(If you see the error Error in grid.newpage() : could not open file '/home/jovyan/.rstudio/notebooks/8C4DC571-raincloud_tutorial_r/1/s/cn8i2q8rs0w2v_t/\_rs\_chunk\_plot\_001.png' when running this tutorial in binder: don't worry! RStudio in binder is just a little slower than you'd hope to present the plot to you inline. Wait a couple of seconds and then run the cell again and the image will appear 😸)
+(If you see the error `Error in grid.newpage() : could not open file ...` when running this tutorial in binder: don't worry! RStudio in binder is just a little slower than you'd hope to present the plot to you inline. Wait a couple of seconds and then run the cell again and the image will appear.)
 
 ```{r figure 1}
 p1
