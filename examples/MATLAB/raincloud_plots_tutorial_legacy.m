@@ -49,7 +49,7 @@ h(1).CData(1, :) = colours(1, :);
 h(1).CData(2, :) = colours(2, :);
 
 e = errorbar(1:2, means, variances, '.k', 'LineWidth', line_width);
-set(gca, 'XTick', 1:2);
+set(gca(), 'XTick', 1:2);
 title('Bar Plot');
 
 print(f1, fullfile(fig_dir, '1bar.png'), '-dpng');
@@ -72,12 +72,12 @@ f3 = figure('Position', fig_position);
 subplot(2,1,1);
 h1= raincloud_plot('X', d{1}, 'box_on', 1);
 title('Raincloud Plot: Group 1');
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 box('off');
 subplot(2,1,2)
 h2= raincloud_plot('X', d{2}, 'box_on', 1);
 title('Raincloud Plot: Group 2');
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 box('off');
 print(f3, fullfile(fig_dir, '3Rain1.png'), '-dpng')
 
@@ -87,13 +87,13 @@ f4 = figure('Position', fig_position);
 subplot(2,1,1);
 h1= raincloud_plot('X', d{1}, 'box_on', 1);
 title('Raincloud Plot: Default Plot');
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 box('off');
 subplot(2,1,2)
 h2= raincloud_plot('X', d{1}, 'box_on', 1, 'box_dodge', 1, 'box_dodge_amount', ...
 0, 'dot_dodge_amount', .3, 'color', cb(1, :), 'cloud_edge_col', cb(1, :));
 title('Raincloud Plot: Some Aesthetic Options');
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 box('off');
 print(f4, fullfile(fig_dir, '4Rain2.png'), '-dpng');
 
@@ -103,14 +103,14 @@ f5 = figure('Position', fig_position);
 subplot(2,1,1);
 h1= raincloud_plot('X', d{1}, 'box_on', 1);
 title('Raincloud Plot: Default Plot');
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 box('off');
 subplot(2,1,2)
 h2=  raincloud_plot('X', d{1}, 'box_on', 1);
 title('Raincloud Plot: Some Aesthetic Options');
 set(h2{1}, 'FaceColor', cb(1, :)) % handles 1-6 are the cloud area, scatterpoints, and boxplot elements respectively
 set(h2{2}, 'MarkerEdgeColor', 'red'); % 
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 box('off');
 print(f5, fullfile(fig_dir, '5Rain3.png'), '-dpng');
 
@@ -120,13 +120,13 @@ f6 = figure('Position', fig_position);
 subplot(2,1,1);
 h1= raincloud_plot('X', d{1}, 'box_on', 1, 'color', cb(1, :), 'bandwidth', .2, 'density_type', 'ks');
 title('Raincloud Plot: Reduced Smoothing, Kernel Density');
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 box('off');
 subplot(2,1,2);
 % must have: https://github.com/CPernet/Robust_Statistical_Toolbox
 h1= raincloud_plot('X', d{1}, 'box_on', 1, 'color', cb(2, :), 'bandwidth', 1, 'density_type', 'rash');
 title('Raincloud Plot: Rash Density Estimate');
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 box('off');
 print(f6, fullfile(fig_dir, '6Rain4.png'), '-dpng');
 
@@ -142,7 +142,7 @@ h2= raincloud_plot('X', d{2}, 'box_on', 1, 'color', cb(4, :), 'alpha', 0.5, ...
     'box_dodge', 1, 'box_dodge_amount', .35, 'dot_dodge_amount', .35, 'box_col_match', 0);
 legend([h1{1} h2{1}], {'Group 1', 'Group 2'});
 title('A) Dodge Options Example 1');
-set(gca, 'XLim', [0, 40], 'YLim', [-.075 .15]);
+set(gca(), 'XLim', [0, 40], 'YLim', [-.075 .15]);
 box('off');
 
 % example 2
@@ -155,7 +155,7 @@ h2= raincloud_plot('X', d{2}, 'box_on', 1, 'color', cb(4, :), 'alpha', 0.5, ...
     'box_col_match', 1);
 legend([h1{1} h2{1}], {'Group 1', 'Group 2'})
 title('B) Dodge Options Example 2');
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 box('off');
 print(f7, fullfile(fig_dir, '7Rain5.png'), '-dpng');
 
@@ -163,10 +163,10 @@ print(f7, fullfile(fig_dir, '7Rain5.png'), '-dpng');
 %% You can also control the jitter and position of the 'raindrops' in the Y-plane by calling the figure handles:
 f8 = figure('Position', fig_position);
 subplot(2,1,1), h1 = raincloud_plot('X',d{1}, 'color', cb(5, :));
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 h1{2}.YData = repmat(-0.1, number_of_datapoints,1);
 subplot(2,1,2), h2 = raincloud_plot('X',d{2}, 'color', cb(7, :));
-set(gca, 'XLim', [0, 40]);
+set(gca(), 'XLim', [0, 40]);
 h2{2}.YData = repmat(-0.05, number_of_datapoints,1); 
 print(f8, fullfile(fig_dir, '8Rain6.png'), '-dpng');
 
@@ -188,7 +188,7 @@ clz{2} = repmat(cb(1, :),3,1);
 
 f9 = figure('Position', fig_position);
 h = raincloud_lineplot_2(data, clz, 1, 1);
-set(gca, 'YLim', [-0.3 1.6]);
+set(gca(), 'YLim', [-0.3 1.6]);
 print(f9, fullfile(fig_dir, '9RepRain1.png'), '-dpng')
 
 
