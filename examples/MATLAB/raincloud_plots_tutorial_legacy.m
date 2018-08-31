@@ -16,9 +16,9 @@ addpath(code_dir);
 N = 12;
 cb = cbrewer('qual', 'Set3', N, 'pchip');
 
-numberOfVariables = 2;
+number_of_variables = 2;
 % 2 variables in the coming section, 3 values each (R, G, B)
-colours = zeros(numberOfVariables, 3);
+colours = zeros(number_of_variables, 3);
 colours(1,:) = cb(4,:); % take fourth colour
 colours(2,:) = cb(1,:); % take first colour
 
