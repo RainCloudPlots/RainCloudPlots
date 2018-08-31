@@ -26,14 +26,17 @@ fig_position = [200, 200, 600, 400]; % coordinates for figures
 
 %% Now we’ll generate some datapoints with similar means and standard deviations; the first is drawn from a random normal distribution and the second from a random exponential distribution. We’ll plot these same data repeatedly in different ways further down:
 %%
-n = 250;
+number_of_datapoints = 250;
 % set a random number generator seed for reproducible results
-rng(123)
+random_number = 123;
+rng(random_number);
 
-d{1} = exprnd(5,1,n) + 15;
-d{2} = (randn(1,n) *5) + 20;
+% generate random data from...
+d    = cell(number_of_variables, 1);
+d{1} = exprnd(5, 1, number_of_datapoints) + 15; % ...exponential distribution
+d{2} = (randn(1, number_of_datapoints) * 5) + 20; % ...uniform distribution
 
-means = cellfun(@mean, d);
+means     = cellfun(@mean, d);
 variances = cellfun(@std, d);
 
 %% Let’s create a quick bar graph of these data. This is the kind of standard visualization you see in many papers, depicting the mean of the data plus standard deviation:
@@ -154,10 +157,10 @@ print(f7, [fig_dir, '\7Rain5.png'], '-dpng')
 f8 = figure('Position', fig_position);
 subplot(2,1,1), h1 = raincloud_plot('X',d{1}, 'color', cb(5,:));
 set(gca,'XLim',[0 40]);
-h1{2}.YData = repmat(-0.1,n,1);
+h1{2}.YData = repmat(-0.1,number_of_datapoints,1);
 subplot(2,1,2), h2 = raincloud_plot('X',d{2}, 'color', cb(7,:));
 set(gca,'XLim',[0 40]);
-h2{2}.YData = repmat(-0.05,n,1); 
+h2{2}.YData = repmat(-0.05,number_of_datapoints,1); 
 print(f8, [fig_dir, '\8Rain6.png'], '-dpng')
 %% For the final example, we'll consider a more complex factorial situation where we have multiple groups and observations. To illustrate this, we'll use a more complex implementation of rainclouds encoded in the 'raincloud_lineplot_2.m' function. You should consider this function an example of more complex applications, rather than a general purpose tool like the raincloud_plot.m function:
 %%
