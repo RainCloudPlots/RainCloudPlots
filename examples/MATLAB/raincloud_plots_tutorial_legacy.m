@@ -34,6 +34,8 @@ rng(random_number);
 d    = cell(number_of_variables, 1);
 d{1} = exprnd(5, 1, number_of_datapoints) + 15; % ...exponential distribution
 d{2} = (randn(1, number_of_datapoints) * 5) + 20; % ...uniform distribution
+% Force the means to be equal:
+d{2} = d{2} - mean(d{2}) + mean(d{1});
 
 means     = cellfun(@mean, d);
 variances = cellfun(@std, d);
