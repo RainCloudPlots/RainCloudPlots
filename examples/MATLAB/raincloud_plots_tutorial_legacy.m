@@ -7,7 +7,7 @@
 script_dir  = pwd();
 code_dir    = fullfile(script_dir, '../../MATLAB/');
 fig_dir     = fullfile(script_dir, '/figs/');
-data_dir    = fullfile(script_dir, '/data/');
+data_dir    = fullfile(script_dir, '../data/');
 addpath(code_dir);
 
 % get nice colours from colorbrewer
@@ -182,7 +182,7 @@ print(f8, fullfile(fig_dir, '8Rain6.png'), '-dpng');
 
 %% For the final example, we'll consider a more complex factorial situation where we have multiple groups and observations. To illustrate this, we'll use a more complex implementation of rainclouds encoded in the 'raincloud_lineplot_2.m' function. You should consider this function an example of more complex applications, rather than a general purpose tool like the raincloud_plot.m function:
 % grab 'repeated_measures_data.csv';
-D = dlmread(fullfile(datadir, 'repeated_measures_data_nohead.csv'), ',');
+D = dlmread(fullfile(data_dir, 'repeated_measures_data_nohead.csv'), ',');
 
 % read into cell array of the appropriate dimensions
 for i = 1:3
