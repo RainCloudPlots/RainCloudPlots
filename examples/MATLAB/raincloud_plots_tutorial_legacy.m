@@ -6,7 +6,7 @@
 % script must be run from inside the parent directory of the tutorial
 script_dir  = pwd();
 code_dir    = fullfile(script_dir, '../../MATLAB/');
-fig_dir     = fullfile(script_dir, '/figs/MATLAB/');
+fig_dir     = fullfile(script_dir, '/figs/');
 data_dir    = fullfile(script_dir, '/data/');
 addpath(code_dir);
 
@@ -47,13 +47,18 @@ variances = cellfun(@std, d);
 line_width = 0.9;
 f1 = figure('Position', fig_position); 
 hold('on');
-h = bar(means, 'FaceColor', 'flat', 'LineWidth', line_width);
-
-h(1).CData(1, :) = colours(1, :);
-h(1).CData(2, :) = colours(2, :);
-
-e = errorbar(1:2, means, variances, '.k', 'LineWidth', line_width);
-set(gca(), 'XTick', 1:2);
+% MATLAB <= 2017a does not support different colours for only two bars.
+% This is a really dirty trick to make it happen nonetheless.
+h = bar([means'; 0, 0], 'LineWidth', line_width);
+h(1).FaceColor = colours(1, :);
+h(2).FaceColor = colours(2, :);
+axis([0.6, 1.4, 0, 25]);
+% As a result of previous hack, the midpoints of the bar plot are
+% hard-coded:
+bar_midpoints = [0.85, 1.15];
+e = errorbar(bar_midpoints, means, variances, '.k', 'LineWidth', line_width);
+set(gca(), 'XTick', bar_midpoints);
+set(gca(), 'XTickLabels', {'Distribution 1', 'Distribution 2'});
 title('Bar Plot');
 
 print(f1, fullfile(fig_dir, '1bar.png'), '-dpng');
