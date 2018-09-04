@@ -79,12 +79,12 @@ print(f2, fullfile(fig_dir, '2hist.png'), '-dpng');
 %% However, now we’ve lost the summary data. The raincloud plot tries to bring these elements together in one intuitive plot. You can use the ‘raincloud_plot.m’ function accompanying this tutorial to produce these plots in Matlab:
 f3 = figure('Position', fig_position);
 subplot(2,1,1);
-h1= raincloud_plot('X', d{1}, 'box_on', 1);
+raincloud_plot('X', d{1}, 'box_on', 1);
 title('Raincloud Plot: Group 1');
 set(gca(), 'XLim', [0, 40]);
 box('off');
 subplot(2,1,2)
-h2= raincloud_plot('X', d{2}, 'box_on', 1);
+raincloud_plot('X', d{2}, 'box_on', 1);
 title('Raincloud Plot: Group 2');
 set(gca(), 'XLim', [0, 40]);
 box('off');
@@ -94,12 +94,12 @@ print(f3, fullfile(fig_dir, '3Rain1.png'), '-dpng')
 %% This gives us the distribution (probability density plot), summary data (box plot), and raw observations all in one place. Now we’ll walk you through some of the options of the function, which you can use to change various aesthetic properties of the plot. The function only requires a vector of the data you want to plot as the input. Additionally, there are a variety of optional flags you can call to turn the boxplots on and off, to alter ('dodge') the position of the boxes and dots, and to change various aesthetics such as linewidth, colors, and so on. For example, by setting a few different flags we can create more colorful plots:
 f4 = figure('Position', fig_position);
 subplot(2,1,1);
-h1= raincloud_plot('X', d{1}, 'box_on', 1);
+raincloud_plot('X', d{1}, 'box_on', 1);
 title('Raincloud Plot: Default Plot');
 set(gca(), 'XLim', [0, 40]);
 box('off');
 subplot(2,1,2)
-h2= raincloud_plot('X', d{1}, 'box_on', 1, 'box_dodge', 1, 'box_dodge_amount', ...
+raincloud_plot('X', d{1}, 'box_on', 1, 'box_dodge', 1, 'box_dodge_amount', ...
 0, 'dot_dodge_amount', .3, 'color', cb(1, :), 'cloud_edge_col', cb(1, :));
 title('Raincloud Plot: Some Aesthetic Options');
 set(gca(), 'XLim', [0, 40]);
@@ -109,13 +109,13 @@ print(f4, fullfile(fig_dir, '4Rain2.png'), '-dpng');
 
 %% The function returns a cell array for various figure parts, so you can also call the base function and then change things with normal set commands, like so:
 f5 = figure('Position', fig_position);
-subplot(2,1,1);
-h1= raincloud_plot('X', d{1}, 'box_on', 1);
+subplot(2, 1, 1);
+h1 = raincloud_plot('X', d{1}, 'box_on', 1);
 title('Raincloud Plot: Default Plot');
 set(gca(), 'XLim', [0, 40]);
 box('off');
-subplot(2,1,2)
-h2=  raincloud_plot('X', d{1}, 'box_on', 1);
+subplot(2, 1, 2);
+h2 = raincloud_plot('X', d{1}, 'box_on', 1);
 title('Raincloud Plot: Some Aesthetic Options');
 set(h2{1}, 'FaceColor', cb(1, :)) % handles 1-6 are the cloud area, scatterpoints, and boxplot elements respectively
 set(h2{2}, 'MarkerEdgeColor', 'red'); % 
@@ -145,26 +145,26 @@ print(f6, fullfile(fig_dir, '6Rain4.png'), '-dpng');
 %% Here, we'll use the dot and box dodge options to create an overlapping set of raincloud plots, useful for group comparison. The function can be called repeatedly (e.g., from within a loop) - each iteration will overlay the previous. Note that here we're using the 'alpha' parameter to make the plot area see-through:
 % example 1
 f7 = figure('Position', fig_position);
-subplot(1,2,1);
-h1= raincloud_plot('X', d{1}, 'box_on', 1, 'color', cb(1, :), 'alpha', 0.5, ...
+subplot(1, 2, 1);
+h1 = raincloud_plot('X', d{1}, 'box_on', 1, 'color', cb(1, :), 'alpha', 0.5, ...
     'box_dodge', 1, 'box_dodge_amount', .15, 'dot_dodge_amount', .15, ...
     'box_col_match', 0);
-h2= raincloud_plot('X', d{2}, 'box_on', 1, 'color', cb(4, :), 'alpha', 0.5, ...
+h2 = raincloud_plot('X', d{2}, 'box_on', 1, 'color', cb(4, :), 'alpha', 0.5, ...
     'box_dodge', 1, 'box_dodge_amount', .35, 'dot_dodge_amount', .35, 'box_col_match', 0);
-legend([h1{1} h2{1}], {'Group 1', 'Group 2'});
+legend([h1{1}, h2{1}], {'Group 1', 'Group 2'});
 title('A) Dodge Options Example 1');
 set(gca(), 'XLim', [0, 40], 'YLim', [-.075 .15]);
 box('off');
 
 % example 2
-subplot(1,2,2);
+subplot(1, 2, 2);
 h1= raincloud_plot('X', d{1}, 'box_on', 1, 'color', cb(1, :), 'alpha', 0.5, ...
     'box_dodge', 1, 'box_dodge_amount', .15, 'dot_dodge_amount', .35, ...
     'box_col_match', 1);
 h2= raincloud_plot('X', d{2}, 'box_on', 1, 'color', cb(4, :), 'alpha', 0.5, ...
     'box_dodge', 1, 'box_dodge_amount', .55, 'dot_dodge_amount', .75, ...
     'box_col_match', 1);
-legend([h1{1} h2{1}], {'Group 1', 'Group 2'})
+legend([h1{1}, h2{1}], {'Group 1', 'Group 2'})
 title('B) Dodge Options Example 2');
 set(gca(), 'XLim', [0, 40]);
 box('off');
@@ -173,10 +173,12 @@ print(f7, fullfile(fig_dir, '7Rain5.png'), '-dpng');
 
 %% You can also control the jitter and position of the 'raindrops' in the Y-plane by calling the figure handles:
 f8 = figure('Position', fig_position);
-subplot(2,1,1), h1 = raincloud_plot('X',d{1}, 'color', cb(5, :));
+subplot(2, 1, 1);
+h1 = raincloud_plot('X',d{1}, 'color', cb(5, :));
 set(gca(), 'XLim', [0, 40]);
 h1{2}.YData = repmat(-0.1, number_of_datapoints,1);
-subplot(2,1,2), h2 = raincloud_plot('X',d{2}, 'color', cb(7, :));
+subplot(2, 1, 2); 
+h2 = raincloud_plot('X',d{2}, 'color', cb(7, :));
 set(gca(), 'XLim', [0, 40]);
 h2{2}.YData = repmat(-0.05, number_of_datapoints,1); 
 print(f8, fullfile(fig_dir, '8Rain6.png'), '-dpng');
@@ -184,22 +186,23 @@ print(f8, fullfile(fig_dir, '8Rain6.png'), '-dpng');
 
 %% For the final example, we'll consider a more complex factorial situation where we have multiple groups and observations. To illustrate this, we'll use a more complex implementation of rainclouds encoded in the 'raincloud_lineplot_2.m' function. You should consider this function an example of more complex applications, rather than a general purpose tool like the raincloud_plot.m function:
 % grab 'repeated_measures_data.csv';
-D = dlmread(fullfile(data_dir, 'repeated_measures_data_nohead.csv'), ',');
+D = dlmread(fullfile(data_dir, 'repeated_measures_data.csv'), ',');
 
 % read into cell array of the appropriate dimensions
 for i = 1:3
     for j = 1:2
-        data{i,j} = D(D(:,2) == i & D(:,3) ==j);
+        data{i, j} = D(D(:,2) == i & D(:,3) ==j);
     end
 end
 
 % this function requires a different colour triplet for each plot, but we want all plots in a series to be the same colour
-clz{1} = repmat(cb(4, :),3,1);
-clz{2} = repmat(cb(1, :),3,1);
+clz{1} = repmat(cb(4, :), 3, 1);
+clz{2} = repmat(cb(1, :), 3, 1);
 
 f9 = figure('Position', fig_position);
 h = raincloud_lineplot_2(data, clz, 1, 1);
-set(gca(), 'YLim', [-0.3 1.6]);
+set(gca(), 'XLim', [-2, 16]);
+set(gca(), 'YLim', [-0.3, 1.6]);
 print(f9, fullfile(fig_dir, '9RepRain1.png'), '-dpng')
 
 
