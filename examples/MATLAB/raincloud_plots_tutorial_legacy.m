@@ -126,15 +126,17 @@ print(f5, fullfile(fig_dir, '5Rain3.png'), '-dpng');
 
 %% You can also control the smoothness of the probability density function by calling the 'bandwidth' parameter. Additionally, if you have Cyril Pernet's robust statistics toolbox on your path, you can call the 'rash' function for an alternative kernel density function:
 f6 = figure('Position', fig_position);
-subplot(2,1,1);
-h1= raincloud_plot('X', d{1}, 'box_on', 1, 'color', cb(1, :), 'bandwidth', .2, 'density_type', 'ks');
-title('Raincloud Plot: Reduced Smoothing, Kernel Density');
-set(gca(), 'XLim', [0, 40]);
-box('off');
-subplot(2,1,2);
-% must have: https://github.com/CPernet/Robust_Statistical_Toolbox
-h1= raincloud_plot('X', d{1}, 'box_on', 1, 'color', cb(2, :), 'bandwidth', 1, 'density_type', 'rash');
-title('Raincloud Plot: Rash Density Estimate');
+if exist('rst_RASH', 'builtin')
+    % Pick either this section, if you've got the Robust_Statistical_Toolbox 
+    % installed...
+    % https://github.com/CPernet/Robust_Statistical_Toolbox    
+    raincloud_plot('X', d{1}, 'box_on', 1, 'color', cb(2, :), 'bandwidth', 1, 'density_type', 'rash');
+    title('Raincloud Plot: Rash Density Estimate');
+else
+    % ... or this section with standard MATLAB functions
+    raincloud_plot('X', d{1}, 'box_on', 1, 'color', cb(1, :), 'bandwidth', .2, 'density_type', 'ks');
+    title('Raincloud Plot: Reduced Smoothing, Kernel Density');
+end
 set(gca(), 'XLim', [0, 40]);
 box('off');
 print(f6, fullfile(fig_dir, '6Rain4.png'), '-dpng');
