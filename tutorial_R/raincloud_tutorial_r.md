@@ -71,6 +71,10 @@ p1 <- ggplot(summary_simdat, aes(x = group, y = score_mean, fill = group))+
 ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
 ```
 
+Lets look at the plot in line too :)
+
+(If you see the error `Error in grid.newpage() : could not open file ...` when running this tutorial in binder: don't worry! RStudio in binder is just a little slower than you'd hope to present the plot to you inline. Wait a couple of seconds and then run the cell again and the image will appear.)
+
 ![](figs/figure 1-1.png)<!-- -->
 
 There we go - just needs some little asterixes and we're ready to publish! Just kidding. Let's start our first, most basic raincloud plot like so, using the 'geom_flat_violin' option our function already setup for us:
