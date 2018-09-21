@@ -19,7 +19,7 @@ function [h, u] = raincloud_plot(X, varargin)
 % --------------------- OPTIONAL ARGUMENTS ----------------------
 % 
 % color             - color vector for rainclouds (default gray, i.e. = [.5 .5 .5])
-% bandwidth         - bandwidth of smoothing kernel (default = 1)
+% band_width         - band_width of smoothing kernel (default = 1)
 % density_type       - choice of density algo ('ks' or 'rath'). Default = 'ks'
 % box_on             - logical to turn box plots on/off (default = 0)
 % box_dodge          - logical to turn on/off box plot dodging (default = 0)
@@ -53,7 +53,7 @@ validScalarPosNum = @(x) isnumeric(x) && isscalar(x) && (x > 0);
 % set the desired and optional input arguments
 addRequired(p, 'X', @isnumeric);
 addOptional(p, 'color', [0.5 0.5 0.5], @isnumeric)
-addOptional(p, 'bandwidth', 1, @isnumeric)
+addOptional(p, 'band_width', [])
 addOptional(p, 'density_type', 'ks', @ischar)
 addOptional(p, 'box_on', 0, @isnumeric)
 addOptional(p, 'box_dodge', 0, @isnumeric)
@@ -72,17 +72,16 @@ addOptional(p, 'cloud_edge_col', [0 0 0], @isnumeric)
 parse(p,varargin{:});
 % then set/get all the inputs out of this structure
 X = p.Results.X; 
-color = p.Results.color; bandwidth = p.Results.bandwidth; density_type = p.Results.density_type; box_on = p.Results.box_on; 
+color = p.Results.color; density_type = p.Results.density_type; box_on = p.Results.box_on; 
 box_dodge = p.Results.box_dodge; box_dodge_amount = p.Results.box_dodge_amount; alpha = p.Results.alpha; 
 dot_dodge_amount = p.Results.dot_dodge_amount; box_col_match = p.Results.box_col_match; 
 line_width = p.Results.line_width; lwr_bnd = p.Results.lwr_bnd;bxcl = p.Results.bxcl; bxfacecl = p.Results.bxfacecl;
-cloud_edge_col = p.Results.cloud_edge_col;
-
+cloud_edge_col = p.Results.cloud_edge_col; band_width = p.Results.band_width;
 
 % calculate kernel density
 switch density_type
     case 'ks'
-        [f, Xi, u] = ksdensity(X, 'bandwidth', bandwidth);
+        [f, Xi, u] = ksdensity(X, 'bandwidth', band_width);
     case 'rash'
         % must have https://github.com/CPernet/Robust_Statistical_Toolbox
         % for this to work
