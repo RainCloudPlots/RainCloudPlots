@@ -16,7 +16,8 @@ library(ggplot2)
 library(dplyr)
 library(lavaan)
 
-# Defining the geom_flat_violin function. Note: the below code modifies the
+# Defining the geom_flat_violin function ----
+# Note: the below code modifies the
 # existing github page by removing a parenthesis in line 50
 
 "%||%" <- function(a, b) {
