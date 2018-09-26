@@ -3,13 +3,25 @@ title: "Rainclouds Tutorial in R"
 output:
   html_document:
     keep_md: yes
-  pdf_document: default
   word_document: default
 ---
 
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(fig.width=6, fig.height=3, fig.path='figs/',
                       echo=FALSE, warning=FALSE, message=FALSE)
+```
+
+## Package dependencies
+
+Make sure we have the packages we need, and install them if they are missing.
+
+```{r package setup, include = TRUE, echo = TRUE}
+packages <- c("ggplot2", "dplyr", "lavaan", "plyr", "cowplot", "rmarkdown", 
+              "readr", "caTools", "bitops")
+
+if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+  install.packages(setdiff(packages, rownames(installed.packages())))  
+}
 ```
 
 ## How to make it rain
@@ -20,11 +32,14 @@ If you'd like to see this notebook with the output rendered, checkout [raincloud
 First, we'll run the included "R_rainclouds" script, which will set-up the split-half violin option in ggplot, as well as simulate some data for our figures:
 
 ```{r setup_raincloud, include = TRUE, echo = TRUE}
+library(cowplot)
+library(dplyr)
+library(readr)
+
 source("R_rainclouds.R")
 source("summarySE.R")
 source("simulateData.R")
-library(readr)
-library(cowplot)
+
 # width and height variables for saved plots
 w = 6
 h = 3
@@ -45,9 +60,16 @@ p1 <- ggplot(summary_simdat, aes(x = group, y = score_mean, fill = group))+
   ylim(0, 80)+
   ylab('Score')+xlab('Group')+theme_cowplot()+
   ggtitle("Figure 1: Barplot +/- SEM")
-  ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
 
-  p1
+ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
+```
+
+Lets look at the plot in line too :)
+
+(If you see the error `Error in grid.newpage() : could not open file ...` when running this tutorial in binder: don't worry! RStudio in binder is just a little slower than you'd hope to present the plot to you inline. Wait a couple of seconds and then run the cell again and the image will appear.)
+
+```{r figure 1}
+p1
 ```
 
 There we go - just needs some little asterixes and we're ready to publish! Just kidding. Let's start our first, most basic raincloud plot like so, using the 'geom_flat_violin' option our function already setup for us:
@@ -58,9 +80,12 @@ p2 <- ggplot(simdat,aes(x=group,y=score))+
   geom_flat_violin(position = position_nudge(x = .2, y = 0),adjust =2)+
   geom_point(position = position_jitter(width = .15), size = .25)+
   ylab('Score')+xlab('Group')+theme_cowplot()+
-  ggtitle('Figure 2: Basic Rainclouds or Little Prince Plot')+
-  ggsave('../figs/tutorial_R/2basic.png', width = w, height = h)
+  ggtitle('Figure 2: Basic Rainclouds or Little Prince Plot')
 
+ggsave('../figs/tutorial_R/2basic.png', width = w, height = h)
+```
+
+```{r figure 2}
 p2
 ```
 
@@ -72,9 +97,12 @@ p3 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   geom_flat_violin(position = position_nudge(x = .2, y = 0),adjust = 2)+
   geom_point(position = position_jitter(width = .15), size = .25)+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE)+
-  ggtitle('Figure 3: The Basic Raincloud with Colour')+
-  ggsave('../figs/tutorial_R/3pretty.png', width = w, height = h)
+  ggtitle('Figure 3: The Basic Raincloud with Colour')
 
+ggsave('../figs/tutorial_R/3pretty.png', width = w, height = h)
+```
+
+```{r figure 3}
 p3
 ```
 
@@ -87,9 +115,12 @@ p4 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   geom_point(position = position_jitter(width = .15), size = .25)+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE) +
   ggtitle('Figure 4: Unsmooth Rainclouds')
-  ggsave('../figs/tutorial_R/4unsmooth.png', width = w, height = h)
 
-  p4
+ggsave('../figs/tutorial_R/4unsmooth.png', width = w, height = h)
+```
+
+```{r figure 4}
+p4
 ```
 
 Now we need to add something to help us easily evaluate any possible differences between our groups or conditions. To achieve this, we'll add some boxplots to complete our raincloud plots. To get the boxplots to line up however we like, we need to set our x-axis to a numeric value, so we can add a fixed offset: 
@@ -103,9 +134,12 @@ p5 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   geom_boxplot(aes(x = as.numeric(group)+0.25, y = score),outlier.shape = NA, alpha = 0.3, width = .1, colour = "BLACK") +
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE, colour = FALSE) +
   ggtitle("Figure 5: Raincloud Plot w/Boxplots")
-  ggsave('../figs/tutorial_R/5boxplots.png', width = w, height = h)
 
-  p5
+ggsave('../figs/tutorial_R/5boxplots.png', width = w, height = h)
+```
+
+```{r figure 5}
+p5
 ```
 
 Now we'll make a few aesthetic tweaks. You may want to turn these on or off depending on your preferences. We'll take the black outline away from the plots by adding the colour = group parameter, and we'll also change colour palettes using the built-in colour brewer tool. 
@@ -120,12 +154,13 @@ p6 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 6: Change in Colour Palette")
-  ggsave('../figs/tutorial_R/6boxplots.png', width = w, height = h)
-  
-p6
+
+ggsave('../figs/tutorial_R/6boxplots.png', width = w, height = h)
 ```
 
-
+```{r figure 6}
+p6
+```
 
 Alternatively, you may prefer to simply plot mean or median with standard confidence intervals. Here we'll plot the mean as well as 95% confidence intervals, which we've calculated using the included SummarySE function, by overlaying them on of our clouds:
 
@@ -140,8 +175,11 @@ p7 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 7: Raincloud Plot with Mean ± 95% CI")
-  ggsave('../figs/tutorial_R/7meanplot.png', width = w, height = h)
 
+ggsave('../figs/tutorial_R/7meanplot.png', width = w, height = h)
+```
+
+```{r figure 7}
 p7
 ```
 
@@ -155,10 +193,22 @@ simdat_round<-simdat
 simdat_round$score<-round(simdat$score,0) 
 
 #Striated/grouped when no jitter applied
-ap1 <- ggplot(simdat_round,aes(x=group,y=score,fill=group,col=group))+geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =4)+geom_point(size = 1, alpha = 0.6)+ylab('Score')+scale_fill_brewer(palette = "Dark2")+scale_colour_brewer(palette = "Dark2")+guides(fill = FALSE, col = FALSE)+ggtitle('Striated')
+ap1 <- ggplot(simdat_round,aes(x=group,y=score,fill=group,col=group))+
+    geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .6,adjust =4)+
+    geom_point(size = 1, alpha = 0.6)+ylab('Score')+
+    scale_fill_brewer(palette = "Dark2")+
+    scale_colour_brewer(palette = "Dark2")+
+    guides(fill = FALSE, col = FALSE)+
+    ggtitle('Striated')
 
 #Added jitter helps
-ap2 <- ggplot(simdat_round,aes(x=group,y=score,fill=group,col=group))+geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .4,adjust =4)+geom_point(position=position_jitter(width = .15),size = 1, alpha = 0.4)+ylab('Score')+scale_fill_brewer(palette = "Dark2")+scale_colour_brewer(palette = "Dark2")+guides(fill = FALSE, col = FALSE)+ggtitle('Added jitter')
+ap2 <- ggplot(simdat_round,aes(x=group,y=score,fill=group,col=group))+
+    geom_flat_violin(position = position_nudge(x = .2, y = 0), alpha = .4,adjust =4)+
+    geom_point(position=position_jitter(width = .15),size = 1, alpha = 0.4)+ylab('Score')+
+    scale_fill_brewer(palette = "Dark2")+
+    scale_colour_brewer(palette = "Dark2")+
+    guides(fill = FALSE, col = FALSE)+
+    ggtitle('Added jitter')
 
 all_plot <- plot_grid(ap1, ap2, labels="AUTO")
 
@@ -170,6 +220,9 @@ title <- ggdraw() +
 all_plot_final <- plot_grid(title, all_plot, ncol = 1, rel_heights = c(0.1, 1)) # rel_heights values control title margins
 
 ggsave('../figs/tutorial_R/8allplot.png', width = w, height = h)
+```
+
+```{r figure 8}
 all_plot_final
 ```
 
@@ -188,8 +241,11 @@ p9 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 9: Complex Raincloud Plots with Facet Wrap")
-  ggsave('../figs/tutorial_R/9facetplot.png', width = w, height = h)
 
+ggsave('../figs/tutorial_R/9facetplot.png', width = w, height = h)
+```
+
+```{r figure 9}
 p9
 ```
 
@@ -207,7 +263,6 @@ sumrepdat <- summarySE(rep_data, measurevar = "score", groupvars=c("group", "tim
 
 
 head(sumrepdat)
-
 ```
 
 Now, we'll plot our rainclouds with boxplots again, this time adding some dodge so we can better emphasize differences between our factors and factor levels. Note that here we need to nudge the point x-axis as a numeric valuable, as this work around does not currently work for boxplots with multiple factors:
@@ -221,8 +276,11 @@ p10 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 10: Repeated Measures Factorial Rainclouds")
-  ggsave('../figs/tutorial_R/10repanvplot.png', width = w, height = h)
-  #coord_flip()+
+
+ggsave('../figs/tutorial_R/10repanvplot.png', width = w, height = h)
+```
+
+```{r figure 10}
 p10
 ```
 
@@ -241,11 +299,12 @@ p11 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 11: Repeated Measures - Factorial (Extended)")
-  ggsave('../figs/tutorial_R/11repanvplot2.png', width = w, height = h)
-  #coord_flip()+
 
+ggsave('../figs/tutorial_R/11repanvplot2.png', width = w, height = h)
+```
+
+```{r figure 11}
 p11
-
 ```
 
 Here is the same plot, but with the grouping variable flipped: 
@@ -264,10 +323,12 @@ p12 <- ggplot(rep_data, aes(x = group, y = score, fill = time)) +
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 12: Repeated Measures - Factorial (Extended)") +
   coord_flip()
-  ggsave('../figs/tutorial_R/12repanvplot3.png', width = w, height = h)
 
+ggsave('../figs/tutorial_R/12repanvplot3.png', width = w, height = h)
+```
+
+```{r figure 12}
 p12
-
 ```
 
 
