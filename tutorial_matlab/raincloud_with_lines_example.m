@@ -79,13 +79,13 @@ figure(3);clf
 
 [h, bw, d] = raincloud_plot(data,'color',[0.7 0 0; 0 0.7 0; 0 0 0.7],...
 'band_width',[1 0.5 0.8],'box_dodge',0,'connecting_lines',1,'box_alpha',0.2,'alpha',0.5,'plot_width',0.05,...
-'range_dots',1,'box_width',0.3,'y_values',[0.2 0.4 0.8]);
+'range_dots',1,'box_width',0.3,'y_values',[0.2 0.4 0.8], 'cloud_edge_col','none');
 
 hold on
 
 [h, bw, d] = raincloud_plot(data,'plot_vertical',1,'color',[0.7 0 0; 0 0.7 0; 0 0 0.7],...
 'band_width',[1 0.5 0.8],'box_dodge',0,'connecting_lines',1,'box_alpha',0.2,'alpha',0.5,'plot_width',0.05,...
-'range_dots',1,'box_width',0.3,'y_values',[1.2 1.4 1.8]);
+'range_dots',1,'box_width',0.3,'y_values',[1.2 1.4 1.8],'cloud_edge_col','none');
 
 set(gca,'FontSize',16)
 title('View turned to vertical, with specified y values')

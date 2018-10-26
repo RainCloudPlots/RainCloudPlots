@@ -1,11 +1,11 @@
 %% raincloud_plot - plots a combination of half-violin, boxplot, and raw datapoints (1d scatter).
-% Use as h = raincloud_plot(data), where data is a data vector is a cell array of handles for the various figure parts.
-% Seee below for optional inputs.
+% Use as h = raincloud_plot(data), where data is a data vector and h is a cell array of handles for the various figure
+% parts. Seee below for optional inputs. 
 % Based on https://micahallen.org/2018/03/15/introducing-raincloud-plots/
-% Inspired by https://m.xkcd.com/1967/
-% v1 - Written by Tom Marshall. www.tomrmarshall.com
-% v2 - Updated inputs to be more flexible - Micah Allen 12/08/2018
-% v3 - Updates and adaptations by Marius Klug 26/10/2018
+% Inspired by https://m.xkcd.com/1967/ 
+% v1 - Written by Tom Marshall. www.tomrmarshall.com 
+% v2 - Updated inputs to be more flexible - Micah Allen 12/08/2018 
+% v3 - Updates and adaptations by Marius Klug 26/10/2018 bemobil.bpn.tu-berlin.de
 %
 % Thanks to Jacob Bellmund for some improvements
 % 
@@ -23,7 +23,7 @@
 % alpha                     - scalar positive value to increase cloud alpha (defalut = 1)
 % line_width                - scalar value to set global line width (default = 2)
 % bxcl                      - color of box outline
-% cloud_edge_col            - color of the cloud edge line (default = [0 0 0])
+% cloud_edge_col            - color of the cloud edge line (default = [0 0 0]). Set to 'none' for no cloud edge.
 % plot_width                - relative width of the plot to left and right (default = 0.2)
 % dot_alpha                 - translucency value of the dots (default = 1)
 % box_alpha                 - translucency value of the box (default = 0.5)
@@ -70,7 +70,7 @@ addOptional(p, 'box_dodge', 0, @isnumeric)
 addOptional(p, 'alpha', 1, validScalarPosNum)
 addOptional(p, 'line_width', 2, validScalarPosNum)
 addOptional(p, 'bxcl', [0 0 0], @isnumeric)
-addOptional(p, 'cloud_edge_col', [0 0 0], @isnumeric)
+addOptional(p, 'cloud_edge_col', [0 0 0])
 addOptional(p, 'plot_width', 0.2, @isnumeric)
 addOptional(p, 'dot_alpha', 1, @isnumeric)
 addOptional(p, 'box_alpha', 0.5, @isnumeric)
