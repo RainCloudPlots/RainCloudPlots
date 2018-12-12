@@ -11,6 +11,8 @@
 ##   https://www.rdocumentation.org/packages/Rmisc/versions/1.5/topics/summarySE
 
 
+
+
 # summarySE function
 summarySE <- function(data = NULL, measurevar, groupvars = NULL, na.rm = FALSE,
                       conf.interval = .95, .drop = TRUE) {
@@ -27,24 +29,23 @@ summarySE <- function(data = NULL, measurevar, groupvars = NULL, na.rm = FALSE,
 
   # This does the summary. For each group's data frame, return a vector with
   # N, mean, median, and sd
-  datac <- ddply(data, groupvars,
-    .drop = .drop,
-    .fun = function(xx, col) {
-      c(
-        N = length2(xx[[col]], na.rm = na.rm),
-        mean = mean(xx[[col]], na.rm = na.rm),
-        median = median(xx[[col]], na.rm = na.rm),
-        sd = sd(xx[[col]], na.rm = na.rm)
-      )
-    },
-    measurevar
+
+  datac <- plyr::ddply(data, groupvars, .drop=.drop,
+                   .fun = function(xx, col) {
+                       c(N      = length2(xx[[col]], na.rm=na.rm),
+                         mean   = mean(xx[[col]], na.rm=na.rm),
+                         median = median(xx[[col]], na.rm=na.rm),
+                         sd      = sd(xx[[col]], na.rm=na.rm)
+                       )
+                   },
+                   measurevar
   )
-
-  # Rename the "mean" and "median" columns
-  datac <- rename(datac, c("mean" = paste(measurevar, "_mean", sep = "")))
-  datac <- rename(datac, c("median" = paste(measurevar, "_median", sep = "")))
-
-  datac$se <- datac$sd / sqrt(datac$N) # Calculate standard error of the mean
+  
+  # Rename the "mean" and "median" columns    
+ datac <- plyr::rename(datac, c("mean" = paste(measurevar, "_mean", sep = "")))
+ datac <- plyr::rename(datac, c("median" = paste(measurevar, "_median", sep = "")))
+  
+ datac$se <- datac$sd / sqrt(datac$N)  # Calculate standard error of the mean
 
   # Confidence interval multiplier for standard error
   # Calculate t-statistic for confidence interval:
