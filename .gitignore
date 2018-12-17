@@ -104,11 +104,8 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-
 .Rproj.user
 *.Rproj
 
 # ignore .DS_Store
 .DS_Store
-
-*.m~
