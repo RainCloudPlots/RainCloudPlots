@@ -104,8 +104,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Ignore Rproj files
 .Rproj.user
 *.Rproj
 
 # ignore .DS_Store
 .DS_Store
+
+# ignore backup matlab files
+*.m~
