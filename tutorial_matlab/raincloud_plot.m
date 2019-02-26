@@ -88,11 +88,9 @@ switch density_type
         try
             [Xi, f] = rst_RASH(X);
             u = NaN; % not sure how to handle this with RASH yet
-        catch e
-            % Because this is a breaking problem, make it a warning instead
-            warning('You''ve specified density_type = ''RASH'', but something''s gone wrong. Have you downloaded Cyril Pernet''s robust stats toolbox?');
-            % You can't go on after this error, so rethrow: 
-            rethrow(e);
+        catch
+            disp('you''ve specified density_type = ''RASH'', but something''s gone wrong.')
+            disp('Have you downloaded Cyril Pernet''s robust stats toolbox?');
         end
 end
 
