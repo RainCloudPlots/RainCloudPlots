@@ -19,85 +19,96 @@
 function h = rm_raincloud(data, colours, plot_top_to_bottom, density_type, bandwidth)
 %% check dimensions of data
 
-[nper, nseries] = size(data);
+[n_plots_per_series, n_series] = size(data);
 
-% make sure we have enough colours
-assert(all(size(colours) == [nseries 3]), 'number of colors does not match number of plot series');
+% make sure we have correct number of colours
+assert(all(size(colours) == [n_series 3]), 'number of colors does not match number of plot series');
+
+%% default arguments
 
 if nargin < 3
-    plot_top_to_bottom = 0; % left-to-right plotting by default
+    plot_top_to_bottom  = 0;    % left-to-right plotting by default
 end
 
 if nargin < 4
-    density_type = 'ks';
+    density_type        = 'ks'; % use 'ksdensity' to create cloud shapes
 end
 
 if nargin < 5
-    bandwidth = [];
+    bandwidth           = [];   % let the function specify the bandwidth
 end
 
 %% Calculate properties of density plots
 
 % Probably okay to hard-code this as it just determines the granularity of
 % the density estimate
+density_granularity = 200;
 
-nbins = repmat(200, nper, nseries);
+n_bins = repmat(density_granularity, n_plots_per_series, n_series);
 
 % calculate kernel densities
-for i = 1:nper
-    for j = 1:nseries
-        % TO-DO: Switch here to use alternative methods to estimate density (e.g. RASH)
+for i = 1:n_plots_per_series
+    for j = 1:n_series
+       
         switch density_type
+            
             case 'ks'
-                [ks{i,j}, x{i,j}] = ksdensity(data{i,j}, 'NumPoints', nbins(i,j), 'bandwidth', bandwidth);
-            case 'rash'
-                % check for rst_RASH function (from Robust stats toolbox) in path, fail if not found 
-                assert(exist('rst_RASH') == 2,'Could not compute density using RASH method. Do you have the Robust Stats toolbox on your path?');
                 
-                [x{i,j}, ks{i,j}] = rst_RASH(data{i,j});
-                % override default 'nbins' as rst_RASH determines number of bins
-                nbins(i,j) = size(ks{i,j},2);
+                % compute density using 'ksdensity'
+                [ks{i, j}, x{i, j}] = ksdensity(data{i, j}, 'NumPoints', n_bins(i, j), 'bandwidth', bandwidth);
+                
+            case 'rash'
+                
+                % check for rst_RASH function (from Robust stats toolbox) in path, fail if not found 
+                assert(exist('rst_RASH', 'file') == 2, 'Could not compute density using RASH method. Do you have the Robust Stats toolbox on your path?');
+                
+                % compute density using RASH
+                [x{i, j}, ks{i, j}] = rst_RASH(data{i, j});
+                
+                % override default 'n_bins' as rst_RASH determines number of bins
+                n_bins(i, j) = size(ks{i, j}, 2);
         end
         
         % Define the faces to connect each adjacent f(x) and the corresponding points at y = 0.
-        q{i,j}       = (1:nbins(i,j)-1)';
-        faces{i,j}   = [q{i,j}, q{i,j} + 1, q{i,j} + nbins(i,j) + 1, q{i,j} + nbins(i,j)];
+        q{i, j}     = (1:n_bins(i, j) - 1)';
+        faces{i, j} = [q{i, j}, q{i, j} + 1, q{i, j} + n_bins(i, j) + 1, q{i, j} + n_bins(i, j)];
+        
     end
 end
 
-% keyboard
-
 % determine spacing between plots
-spacing     = 2 * mean(mean(cellfun(@max,ks)));
-ks_offsets  = [0:nper-1] .* spacing;
+spacing     = 2 * mean(mean(cellfun(@max, ks)));
+ks_offsets  = [0:n_plots_per_series-1] .* spacing;
+
 % flip so first plot in series is plotted on the *top*
 ks_offsets  = fliplr(ks_offsets);
 
 % calculate patch vertices from kernel density
-for i = 1:nper
-    for j = 1:nseries
-        verts{i,j} = [x{i,j}', ks{i,j}' + ks_offsets(i); x{i,j}', ones(nbins(i,j),1) * ks_offsets(i)];
-        verts{i,j} = [x{i,j}', ks{i,j}' + ks_offsets(i); x{i,j}', ones(nbins(i,j),1) * ks_offsets(i)];
+for i = 1:n_plots_per_series
+    for j = 1:n_series
+        verts{i, j} = [x{i, j}', ks{i, j}' + ks_offsets(i); x{i, j}', ones(n_bins(i, j), 1) * ks_offsets(i)];
+        verts{i, j} = [x{i, j}', ks{i, j}' + ks_offsets(i); x{i, j}', ones(n_bins(i, j), 1) * ks_offsets(i)];
     end
 end
 
 
 %% jitter for the raindrops
 
-jitwidth = spacing / 8;
+jit_width = spacing / 8;
 
 % TO-DO: This should probably not be hardcoded either...
-sz = 100;
+% Although it can be overridden later
+raindrop_size = 100;
 
-for i = 1:nper
-    for j = 1:nseries
-        jit{i,j} = jitwidth + rand(1, length(data{i,j})) * jitwidth;
+for i = 1:n_plots_per_series
+    for j = 1:n_series
+        jit{i,j} = jit_width + rand(1, length(data{i,j})) * jit_width;
     end
 end
 
 %% means (for mean dots)
 
-mnz = cellfun(@mean, data);
+cell_means = cellfun(@mean, data);
 
 %% plot
 % note - we *could* plot everything here in one big loop, but then
@@ -106,27 +117,33 @@ mnz = cellfun(@mean, data);
 hold on
 
 % patches
-for i = 1:nper
-    for j = 1:nseries
+for i = 1:n_plots_per_series
+    for j = 1:n_series
+        
         % plot patches
-        h.p{i,j} = patch('Faces', faces{i,j}, 'Vertices', verts{i,j}, 'FaceVertexCData', [colours(j,:)], 'FaceColor', 'flat', 'EdgeColor', 'none', 'FaceAlpha',0.5);
+        h.p{i, j} = patch('Faces', faces{i, j}, 'Vertices', verts{i, j}, 'FaceVertexCData', colours(j, :), 'FaceColor', 'flat', 'EdgeColor', 'none', 'FaceAlpha', 0.5);
         
         % scatter rainclouds
-        h.s{i,j} = scatter(data{i,j}, -jit{i,j} + ks_offsets(i), 'MarkerFaceColor', colours(j,:), 'MarkerEdgeColor', 'none', 'MarkerFaceAlpha', 0.5, 'SizeData', sz);
+        h.s{i, j} = scatter(data{i, j}, -jit{i, j} + ks_offsets(i), 'MarkerFaceColor', colours(j, :), 'MarkerEdgeColor', 'none', 'MarkerFaceAlpha', 0.5, 'SizeData', raindrop_size);
+        
     end
 end
 
 % plot mean lines
-for i = 1:nper-1 % note 2, not 1. We have nper-1 lines because lines connect pairs of points
-    for j = 1:nseries
-        h.l(i,j) = line(mnz([i i+1],j), ks_offsets([i i+1]), 'LineWidth', 4, 'Color', colours(j,:));
+for i = 1:n_plots_per_series - 1 % We have n_plots_per_series-1 lines because lines connect pairs of points
+    for j = 1:n_series
+        
+        h.l(i, j) = line(cell_means([i i+1], j), ks_offsets([i i+1]), 'LineWidth', 4, 'Color', colours(j, :));
+        
     end
 end
 
 % plot mean dots
-for i = 1:nper
-    for j = 1:nseries
-        h.m(i,j) = scatter(mnz(i,j), ks_offsets(i), 'MarkerFaceColor', colours(j,:), 'MarkerEdgeColor', [0 0 0], 'MarkerFaceAlpha', 1, 'SizeData', sz*2, 'LineWidth', 2);
+for i = 1:n_plots_per_series
+    for j = 1:n_series
+        
+        h.m(i, j) = scatter(cell_means(i, j), ks_offsets(i), 'MarkerFaceColor', colours(j, :), 'MarkerEdgeColor', [0 0 0], 'MarkerFaceAlpha', 1, 'SizeData', raindrop_size * 2, 'LineWidth', 2);
+    
     end
 end
 
@@ -136,7 +153,7 @@ end
 % raincloud at the top. So flip the vector around
 set(gca, 'YTick', fliplr(ks_offsets));
 
-set(gca, 'YTickLabel', nper:-1:1);
+set(gca, 'YTickLabel', n_plots_per_series:-1:1);
 
 %% determine plot rotation
 % default option is left-to-right
