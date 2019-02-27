@@ -69,7 +69,7 @@ addOptional(p, 'cloud_edge_col', [0 0 0], @isnumeric)
 
 
 % parse the input
-parse(p,varargin{:});
+parse(p,X,varargin{:});
 % then set/get all the inputs out of this structure
 X = p.Results.X; 
 color = p.Results.color; density_type = p.Results.density_type; box_on = p.Results.box_on; 
