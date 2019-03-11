@@ -15,13 +15,13 @@
 * [Give us feedback](#give-us-feedback)
 * [Citing RainCloud plots](#citing-raincloud-plots)
 * [Interactive tutorials online](#interactive-tutorials-online)
+* [RainCloud plots in the wild](#raincloud-plots-in-the-wild)
+* [Read more about RainCloud Plots](#read-more-about-raincloud-plots)
 * [Installing and running on your local machine](#installing-and-running-on-your-local-machine)
   * [Download from github](#download-from-github) (needed for all tutorials)
   * [Python environment](#python-environment)
   * [R environment](#r-environment)
   * [Matlab environment](#matlab-environment)
-* [RainCloud plots in the wild](#raincloud-plots-in-the-wild)
-* [Read more about RainCloud Plots](#read-more-about-raincloud-plots)
 
 ## Read the preprint
 
@@ -47,7 +47,6 @@ There is a [zenodo archive](https://zenodo.org/badge/latestdoi/144041501) of the
 
 Get in touch with [Kirstie Whitaker](https://github.com/KirstieJane) if you need help citing a particular version of this codebase.
 
-
 ## Interactive tutorials online
 
 You don't have to take our word for it, you can use Project Jupyter's [binder](https://mybinder.org) to interact with the python and R tutorials yourself.
@@ -56,6 +55,24 @@ Just follow either of the links below.
 
 * [![Binder](https://img.shields.io/badge/binder%20tutorial-python-fb62f6.svg)](https://mybinder.org/v2/gh/RainCloudPlots/RainCloudPlots/master?filepath=tutorial_python%2Fraincloud_tutorial_python.ipynb) will open the python tutorial as an online jupyter notebook.
 * [![Binder](https://img.shields.io/badge/binder%20tutorial-R-c62e65.svg)](https://mybinder.org/v2/gh/RainCloudPlots/RainCloudPlots/master?urlpath=rstudio) will open an online version of RStudio. You'll need to navigate to the [R tutorial](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.Rmd) (`/tutorial_R/raincloud_tutorial_r.Rmd`) from within RStudio and open the file to run it.
+
+## Raincloud plots in the wild
+
+We are delighted by how popular RainCloud plots have been!
+In the six months since we published our [preprint](https://peerj.com/preprints/27137v1/) we have seen the following uses of RainCloud plots "in the wild":
+
+* There's a [shiny app](https://gabrifc.shinyapps.io/raincloudplots/) by [Gabriel Forn-Cuní](https://github.com/gabrifc) and hosted on GitHub at [github.com/gabrifc/raincloud-shiny](https://github.com/gabrifc/raincloud-shiny).
+* There's an accessible tutorial using [native R datasets]() `[MISSING LINK]`
+* RainCloud plots have been incorporated in the [PupillometryR](https://github.com/samhforbes/PupillometryR) package by [Sam Forbes](https://github.com/samhforbes).
+* There's a lovely [animated demonstration](https://twitter.com/page_eco/status/1064891967077789703) showcasing how easy it is for humans to read signal into noise for small samples (code available as a [gist](https://gist.github.com/ajstewartlang/89dcdf01c4512a213141a16e9243626d) by [Andrew Stewart](https://github.com/ajstewartlang).
+
+## Read more about RainCloud Plots
+
+You can read more about RainCloud plots in the following blog posts:
+
+* The original [Introducing RainCloud Plots](https://micahallen.org/2018/03/15/introducing-raincloud-plots/) post by [Micah Allen](https://micahallen.org/) in March 2018.
+* A great [summary of our preprint](https://prelights.biologists.com/highlights/raincloud-plots-multi-platform-tool-robust-data-visualization/) is at [Prelights](https://prelights.biologists.com/), an inititative to showcase the best preprints in the biological sciences.
+* Raincloud Plots were included in [Helena Jambor's](https://helenajambor.wordpress.com/) blog post ["Pick'n'mix plots"](https://helenajambor.wordpress.com/2018/08/28/pick-n-mix-plots/) which compares a few different visualisation types.
 
 ## Installing and running on your local machine
 
@@ -125,20 +142,3 @@ You'll need two dependencies to run the matlab tutorial: `cbrewer` which can be 
 
 Put both of these dependencies in the `tutorial_matlab` folder and then, from inside that directory, run `raincloud_tutorial_matlab.mlx`.
 
-## Raincloud plots in the wild
-
-We are delighted by how popular RainCloud plots have been!
-In the six months since we published our [preprint](https://peerj.com/preprints/27137v1/) we have seen the following uses of RainCloud plots "in the wild":
-
-* There's a [shiny app](https://gabrifc.shinyapps.io/raincloudplots/) by [Gabriel Forn-Cuní](https://github.com/gabrifc) and hosted on GitHub at [github.com/gabrifc/raincloud-shiny](https://github.com/gabrifc/raincloud-shiny).
-* There's an accessible tutorial using [native R datasets]() `[MISSING LINK]`
-* RainCloud plots have been incorporated in the [PupillometryR](https://github.com/samhforbes/PupillometryR) package by [Sam Forbes](https://github.com/samhforbes).
-* There's a lovely [animated demonstration](https://twitter.com/page_eco/status/1064891967077789703) showcasing how easy it is for humans to read signal into noise for small samples (code available as a [gist](https://gist.github.com/ajstewartlang/89dcdf01c4512a213141a16e9243626d) by [Andrew Stewart](https://github.com/ajstewartlang).
-
-## Read more about RainCloud Plots
-
-You can read more about RainCloud plots in the following blog posts:
-
-* The original [Introducing RainCloud Plots](https://micahallen.org/2018/03/15/introducing-raincloud-plots/) post by [Micah Allen](https://micahallen.org/) in March 2018.
-* A great [summary of our preprint](https://prelights.biologists.com/highlights/raincloud-plots-multi-platform-tool-robust-data-visualization/) is at [Prelights](https://prelights.biologists.com/), an inititative to showcase the best preprints in the biological sciences.
-* Raincloud Plots were included in [Helena Jambor's](https://helenajambor.wordpress.com/) blog post ["Pick'n'mix plots"](https://helenajambor.wordpress.com/2018/08/28/pick-n-mix-plots/) which compares a few different visualisation types.
