@@ -140,5 +140,5 @@ You'll need two dependencies to run the matlab tutorial: `cbrewer` which can be 
 
 **NOTE**: the robust statistical toolbox is made available under the [GNU General Public License](https://github.com/CPernet/Robust_Statistical_Toolbox/blob/master/LICENSE) which is a ["copyleft"](https://en.wikipedia.org/wiki/Copyleft) license. GPL is compatible with [MIT](LICENSE) (the license for this repository) but supersedes it. Make sure that you are not violating this license when you run the matlab tutorial. :smiley:
 
-Put both of these dependencies in the `tutorial_matlab` folder and then, from inside that directory, run `raincloud_tutorial_matlab.mlx`.
+Put both of these dependencies in the `tutorial_matlab` folder and then, from the parent directory of that directory, run `raincloud_tutorial_matlab.mlx`.
 
