@@ -62,7 +62,7 @@ We are delighted by how popular RainCloud plots have been!
 In the six months since we published our [preprint](https://peerj.com/preprints/27137v1/) we have seen the following uses of RainCloud plots "in the wild":
 
 * There's a [shiny app](https://gabrifc.shinyapps.io/raincloudplots/) by [Gabriel Forn-Cuní](https://github.com/gabrifc) and hosted on GitHub at [github.com/gabrifc/raincloud-shiny](https://github.com/gabrifc/raincloud-shiny).
-* There's an accessible tutorial using [native R datasets]() `[MISSING LINK]`
+* There's an accessible tutorial [hosted on Kaggle](https://www.kaggle.com/sbajew/raincloud-plots-iris-data) and using native R datasets by [Simon Bajew](https://www.kaggle.com/sbajew).
 * RainCloud plots have been incorporated in the [PupillometryR](https://github.com/samhforbes/PupillometryR) package by [Sam Forbes](https://github.com/samhforbes).
 * There's a lovely [animated demonstration](https://twitter.com/page_eco/status/1064891967077789703) showcasing how easy it is for humans to read signal into noise for small samples (code available as a [gist](https://gist.github.com/ajstewartlang/89dcdf01c4512a213141a16e9243626d) by [Andrew Stewart](https://github.com/ajstewartlang).
 
