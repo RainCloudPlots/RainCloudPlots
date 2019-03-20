@@ -121,7 +121,12 @@ wdth = yl(2) * 0.25;
 jit = (rand(size(X)) - 0.5) * wdth;
 
 % info for making boxplot
-Y = quantile(X, [0.25 0.75 0.5 0.02 0.98]);
+quartiles   = quantile(X, [0.25 0.75 0.5]);
+iqr         = quartiles(2) - quartiles(1);
+Xs          = sort(X);
+whiskers(1) = min(Xs(Xs > (quartiles(1) - (1.5 * iqr))));
+whiskers(2) = max(Xs(Xs < (quartiles(2) + (1.5 * iqr))));
+Y           = [quartiles whiskers];
 
 % raindrops
 if box_dodge
