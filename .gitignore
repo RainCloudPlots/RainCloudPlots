@@ -109,6 +109,3 @@ venv.bak/
 
 # ignore .DS_Store
 .DS_Store
-*.jpg
-*.png
-*.jpg
