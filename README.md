@@ -25,15 +25,22 @@
 
 ## Read the preprint
 
-You can read all about Raincloud Plots in our [preprint at PeerJ](https://peerj.com/preprints/27137v1/).
+We originally published RainCloudPlots as a [preprint at PeerJ](https://peerj.com/preprints/27137v1/).
+:heart_eyes: THANK YOU :heart_eyes: to everyone who left comments and gave us feedback on that document.
 
-> Allen M, Poggiali D, Whitaker K, Marshall TR, Kievit R. (2018) Raincloud plots: a multi-platform tool for robust data visualization. PeerJ Preprints 6:e27137v1 https://doi.org/10.7287/peerj.preprints.27137v1
+In March we submitted a revised preprint to [Wellcome Open Research](https://doi.org/10.12688/wellcomeopenres.15191.1).
+It is currently under peer review and - we hope - will soon transition to a traditional peer reviewed publication.
+
+> How to cite: Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 1; peer review: awaiting peer review]. Wellcome Open Res 2019, 4:63 (https://doi.org/10.12688/wellcomeopenres.15191.1) 
 
 ## Give us feedback
 
-We'd love to hear your thoughts and any feedback you have. The best place to leave comments on the preprint and the project in general is [at the PeerJ preprint](https://peerj.com/preprints/27137v1/). Just scroll to the bottom of that page and leave us feedback or ask a question.
+We'd love to hear your thoughts and any feedback you have.
+The best place to leave comments on the preprint and the project in general is at the [Wellcome Open Research preprint](https://doi.org/10.12688/wellcomeopenres.15191.1).
+Just scroll to the bottom of that page (or click on the link at the side) and leave us feedback or ask a question.
 
-You can also submit a pull request to this repository if you find a bug! Just check out our [contributing guidelines](CONTRIBUTING.md) for help getting started.
+You can also open an issue or submit a pull request to this repository if you find a bug!
+Just check out our [contributing guidelines](CONTRIBUTING.md) for help getting started.
 
 ## Citing RainCloud plots
 
@@ -41,7 +48,7 @@ We really hope you find these tutorials helpful and want to use the code in your
 
 There is a [zenodo archive](https://zenodo.org/badge/latestdoi/144041501) of the codebase and we ask that you cite the preprint along with the version of the code you used when referring to RainCloud plots.
 
-> Allen M, Poggiali D, Whitaker K, Marshall TR, Kievit R. (2018) Raincloud plots: a multi-platform tool for robust data visualization. PeerJ Preprints 6:e27137v1 https://doi.org/10.7287/peerj.preprints.27137v1
+>  Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 1; peer review: awaiting peer review]. Wellcome Open Res 2019, 4:63 (https://doi.org/10.12688/wellcomeopenres.15191.1) 
 >
 > Allen M, Poggiali D, Whitaker K, Marshall TR, Kievit R. (2018) RainCloudPlots tutorials and codebase (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.1402959
 
@@ -59,7 +66,7 @@ Just follow either of the links below.
 ## Raincloud plots in the wild
 
 We are delighted by how popular RainCloud plots have been!
-In the six months since we published our [preprint](https://peerj.com/preprints/27137v1/) we have seen the following uses of RainCloud plots "in the wild":
+In the six months since we published our [preprint at PeerJ](https://peerj.com/preprints/27137v1/) we have seen the following uses of RainCloud plots "in the wild":
 
 * There's a [shiny app](https://gabrifc.shinyapps.io/raincloudplots/) by [Gabriel Forn-Cuní](https://github.com/gabrifc) and hosted on GitHub at [github.com/gabrifc/raincloud-shiny](https://github.com/gabrifc/raincloud-shiny).
 * There's an accessible tutorial [hosted on Kaggle](https://www.kaggle.com/sbajew/raincloud-plots-iris-data) and using native R datasets by [Simon Bajew](https://www.kaggle.com/sbajew).
