@@ -53,7 +53,7 @@ There is a [zenodo archive](https://zenodo.org/badge/latestdoi/144041501) of the
 
 >  Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 1; peer review: 2 approved]. Wellcome Open Res 2019, 4:63. DOI: [10.12688/wellcomeopenres.15191.1](https://doi.org/10.12688/wellcomeopenres.15191.1)
 >
-> Allen M, Poggiali D, Whitaker K, Marshall TR, Kievit R. (2018) RainCloudPlots tutorials and codebase (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.1402959
+> Allen M, Poggiali D, Whitaker K, Marshall TR, Kievit R. (2018) RainCloudPlots tutorials and codebase (Version v1.1). Zenodo. http://doi.org/10.5281/zenodo.3368186
 
 Get in touch with [Kirstie Whitaker](https://github.com/KirstieJane) if you need help citing a particular version of this codebase.
 
