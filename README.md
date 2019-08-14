@@ -25,13 +25,15 @@
 
 ## Read the preprint
 
-We originally published RainCloudPlots as a [preprint at PeerJ](https://peerj.com/preprints/27137v1/).
+We originally published Raincloud plots as a [preprint at PeerJ](https://peerj.com/preprints/27137v1/).
 :heart_eyes: THANK YOU :heart_eyes: to everyone who left comments and gave us feedback on that document.
 
 In March we submitted a revised preprint to [Wellcome Open Research](https://doi.org/10.12688/wellcomeopenres.15191.1).
-It is currently under peer review and - we hope - will soon transition to a traditional peer reviewed publication.
+Thank you to reviewers Lisa M. DeBruine and Elena Allen for their constructive feedback.
 
-> How to cite: Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 1; peer review: awaiting peer review]. Wellcome Open Res 2019, 4:63 (https://doi.org/10.12688/wellcomeopenres.15191.1) 
+To cite Raincloud plots:
+
+> Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 1; peer review: 2 approved]. Wellcome Open Res 2019, 4:63. DOI: [10.12688/wellcomeopenres.15191.1](https://doi.org/10.12688/wellcomeopenres.15191.1)
 
 ## Give us feedback
 
