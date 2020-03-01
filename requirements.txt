@@ -1,5 +1,5 @@
 matplotlib
-numpy
+numpy>=1.13
 scipy
-seaborn>=0.9
-ptitprince==0.1.5
+seaborn>=0.10
+ptitprince==0.2.3
