@@ -162,7 +162,7 @@ ggsave('../figs/tutorial_R/6boxplots.png', width = w, height = h)
 p6
 ```
 
-Alternatively, you may prefer to simply plot mean or median with standard confidence intervals. Here we'll plot the mean as well as 95% confidence intervals, which we've calculated using the included SummarySE function, by overlaying them on of our clouds:
+Alternatively, you may prefer to simply plot mean or median with standard confidence intervals. Here we'll plot the mean as well as 95% confidence intervals, which we've calculated using the included SummarySE function, by overlaying them on our clouds:
 
 ```{r, meanplot_rc, include = TRUE, echo = TRUE}
 #Rainclouds with mean and confidence interval
