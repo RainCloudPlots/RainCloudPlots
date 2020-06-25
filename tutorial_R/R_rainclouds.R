@@ -5,7 +5,7 @@
 ### and the package ggplot2 by Hadley Wickham
 
 # Check if required packages are installed ----
-packages <- c("cowplot", "readr", "ggplot2", "dplyr", "lavaan", "smooth", "Hmisc")
+packages <- c("cowplot", "readr", "ggplot2", "dplyr", "lavaan", "Hmisc")
 if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
   install.packages(setdiff(packages, rownames(installed.packages())))
 }
