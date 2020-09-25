@@ -2,4 +2,4 @@ matplotlib
 numpy>=1.13
 scipy
 seaborn>=0.10
-ptitprince==0.2.3
+ptitprince
