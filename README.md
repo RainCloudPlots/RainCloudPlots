@@ -137,7 +137,7 @@ easy-to-use set of functions for the most common experimental designs and data f
 
 #### `raincloudplots` - R package
 Here's how to install the R-package [raincloudplots](https://github.com/jorvlan/raincloudplots). 
-```
+```r
 if (!require(remotes)) {
     install.packages("remotes")
 }
