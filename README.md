@@ -135,7 +135,9 @@ There are two ways to make it rain in R: through a series of specific easy to mo
 our new tailored package, [raincloudplots](https://github.com/jorvlan/raincloudplots). The former provides a step-by-step walkthrough with individual scripts which can be modified as needed. The latter provides an
 easy-to-use set of functions for the most common experimental designs and data formats.
 
-#### `raincloudplots` - R package
+#### `raincloudplots` - R package <img src="https://github.com/jorvlan/open-visualizations/blob/master/R/package_figures/rainclouds_highres.png" width="150" height="160" align="right"/>
+
+
 Here's how to install the R-package [raincloudplots](https://github.com/jorvlan/raincloudplots). 
 ```r
 if (!require(remotes)) {
@@ -145,7 +147,7 @@ remotes::install_github('jorvlan/raincloudplots')
 
 library(raincloudplots)
 ```
-Further package-details and visualization-examples can be found on there.
+Further package-details and visualization-examples can be found on the GitHub repository that hosts the package.
 
 #### R tutorial
 We recommend that you run the R tutorial through RStudio. You can download the appropriate version of **RStudio Desktop** for your operating system [here](https://www.rstudio.com/products/rstudio/download/).
