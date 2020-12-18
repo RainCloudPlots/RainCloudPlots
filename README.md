@@ -131,6 +131,23 @@ Double click on `raincloud_tutorial_python.ipynb` in your browser, make sure you
 
 ### R environment
 
+There are two ways to make it rain in R: through a series of specific easy to modify scripts, and through
+our new tailored package, [raincloudplots](https://github.com/jorvlan/raincloudplots). The former provides a step-by-step walkthrough with individual scripts which can be modified as needed. The latter provides an
+easy-to-use set of functions for the most common experimental designs and data formats.
+
+#### `raincloudplots` - R package
+Here's how to install the R-package [raincloudplots](https://github.com/jorvlan/raincloudplots). 
+```
+if (!require(remotes)) {
+    install.packages("remotes")
+}
+remotes::install_github('jorvlan/raincloudplots')
+
+library(raincloudplots)
+```
+Further package-details and visualization-examples can be found on there.
+
+#### R tutorial
 We recommend that you run the R tutorial through RStudio. You can download the appropriate version of **RStudio Desktop** for your operating system [here](https://www.rstudio.com/products/rstudio/download/).
 
 If you already have RStudio please check that you have [knitr](https://cran.r-project.org/web/packages/knitr/index.html) version `1.20` or higher.
