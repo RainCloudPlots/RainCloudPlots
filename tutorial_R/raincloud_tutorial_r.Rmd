@@ -1,6 +1,9 @@
 ---
 title: "Rainclouds Tutorial in R"
-output: html_document
+output:
+  html_document:
+    keep_md: yes
+  word_document: default
 ---
 
 ```{r global_options, include=FALSE}
