@@ -50,7 +50,7 @@ source("simulateData.R")
 w = 6
 h = 3
 # Make the figure folder if it doesn't exist yet
-dir.create('./figs2/', showWarnings = FALSE)
+dir.create('../figs/tutorial_R/', showWarnings = FALSE)
 
 head(summary_simdat)
 ```
@@ -71,7 +71,7 @@ p1 <- ggplot(summary_simdat, aes(x = group, y = score_mean, fill = group))+
   ylab('Score')+xlab('Group')+theme_cowplot()+
   ggtitle("Figure 1: Barplot +/- SEM")
 
-ggsave('./figs2/1Barplot.png', width = w, height = h)
+ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
 ```
 
 Lets look at the plot in line too :)
@@ -95,7 +95,7 @@ p2 <- ggplot(simdat,aes(x=group,y=score))+
   ylab('Score')+xlab('Group')+theme_cowplot()+
   ggtitle('Figure 2: Basic Rainclouds or Little Prince Plot')
 
-ggsave('./figs2/2basic.png', width = w, height = h)
+ggsave('../figs/tutorial_R/2basic.png', width = w, height = h)
 ```
 
 ```{r figure 2}
@@ -112,7 +112,7 @@ p3 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE)+
   ggtitle('Figure 3: The Basic Raincloud with Colour')
 
-ggsave('./figs2/3pretty.png', width = w, height = h)
+ggsave('../figs/tutorial_R/3pretty.png', width = w, height = h)
 ```
 
 ```{r figure 3}
@@ -129,7 +129,7 @@ p4 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE) +
   ggtitle('Figure 4: Unsmooth Rainclouds')
 
-ggsave('./figs2/4unsmooth.png', width = w, height = h)
+ggsave('../figs/tutorial_R/4unsmooth.png', width = w, height = h)
 ```
 
 ```{r figure 4}
@@ -148,7 +148,7 @@ p5 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE, colour = FALSE) +
   ggtitle("Figure 5: Raincloud Plot w/Boxplots")
 
-ggsave('./figs2/5boxplots.png', width = w, height = h)
+ggsave('../figs/tutorial_R/5boxplots.png', width = w, height = h)
 ```
 
 ```{r figure 5}
@@ -168,7 +168,7 @@ p6 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 6: Change in Colour Palette")
 
-ggsave('./figs2/6boxplots.png', width = w, height = h)
+ggsave('../figs/tutorial_R/6boxplots.png', width = w, height = h)
 ```
 
 ```{r figure 6}
@@ -189,7 +189,7 @@ p7 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 7: Raincloud Plot with Mean ± 95% CI")
 
-ggsave('./figs2/7meanplot.png', width = w, height = h)
+ggsave('../figs/tutorial_R/7meanplot.png', width = w, height = h)
 ```
 
 ```{r figure 7}
@@ -232,7 +232,7 @@ title <- ggdraw() +
 
 all_plot_final <- plot_grid(title, all_plot, ncol = 1, rel_heights = c(0.1, 1)) # rel_heights values control title margins
 
-ggsave('./figs2/8allplot.png', width = w, height = h)
+ggsave('../figs/tutorial_R/8allplot.png', width = w, height = h)
 ```
 
 ```{r figure 8}
@@ -255,7 +255,7 @@ p9 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 9: Complex Raincloud Plots with Facet Wrap")
 
-ggsave('./figs2/9facetplot.png', width = w, height = h)
+ggsave('../figs/tutorial_R/9facetplot.png', width = w, height = h)
 ```
 
 ```{r figure 9}
@@ -290,7 +290,7 @@ p10 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 10: Repeated Measures Factorial Rainclouds")
 
-ggsave('./figs2/10repanvplot.png', width = w, height = h)
+ggsave('../figs/tutorial_R/10repanvplot.png', width = w, height = h)
 ```
 
 ```{r figure 10}
@@ -313,7 +313,7 @@ p11 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 11: Repeated Measures - Factorial (Extended)")
 
-ggsave('./figs2/11repanvplot2.png', width = w, height = h)
+ggsave('../figs/tutorial_R/11repanvplot2.png', width = w, height = h)
 ```
 
 ```{r figure 11}
@@ -337,7 +337,7 @@ p12 <- ggplot(rep_data, aes(x = group, y = score, fill = time)) +
   ggtitle("Figure 12: Repeated Measures - Factorial (Extended)") +
   coord_flip()
 
-ggsave('./figs2/12repanvplot3.png', width = w, height = h)
+ggsave('../figs/tutorial_R/12repanvplot3.png', width = w, height = h)
 ```
 
 ```{r figure 12}
