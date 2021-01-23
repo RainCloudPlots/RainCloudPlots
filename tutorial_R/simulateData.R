@@ -9,7 +9,7 @@
 
 m <- 50 # mean
 s <- 25 # sd
-n <- 250 # drawsx
+sim_n <- 250 # drawsx
 
 # Calculate log-normal parameters ----
 
@@ -21,14 +21,20 @@ set.seed(123)
 
 # Create data by hand ----
 
-simdat_group1 <- rlnorm(n, location, shape)
-simdat_group2 <- rnorm(n, m, s)
+simdat_group1 <- rlnorm(sim_n, location, shape)
+simdat_group2 <- rnorm(sim_n, m, s)
 
-simdat <- c(simdat_group1, simdat_group2)
-simdat <- data.frame(c(rep("Group1", times = n), 
-                       rep("Group2", times = n)), simdat)
-colnames(simdat) <- c("group", "score")
+simdat <- c(simdat_group1, simdat_group2) %>% as_tibble() %>% rename(score = 1)
+simdat <- simdat %>% mutate(group = 
+                      fct_inorder(c(rep("Group1", times = sim_n),
+                       rep("Group2", times = sim_n))))
+
 
 # Calculate summary stats ----
-summary_simdat <- summarySE(simdat, measurevar = "score", 
-                                     groupvars = c("group"))
+summary_simdat <- fn_summary_SE(simdat, quo(score), group)
+summary_simdat
+
+# new fn_summary_SE
+
+##   # This does the summary. For each group's data frame, return a vector with
+# N, mean, median, and sd

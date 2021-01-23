@@ -1,9 +1,6 @@
 ---
 title: "Rainclouds Tutorial in R"
-output:
-  html_document:
-    keep_md: yes
-  word_document: default
+output: html_document
 ---
 
 ```{r global_options, include=FALSE}
@@ -25,9 +22,15 @@ if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
 ```
 
 ## How to make it rain
-This tutorial will walk you through the process of transforming your barplots into rainclouds, and also show you how to customize your rainclouds for various options such as ordinal or repeated measures data.
 
-If you'd like to see this notebook with the output rendered, checkout [raincloud_tutorial_r.md](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.md) or [raincloud_tutorial_r.pdf](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.pdf).
+This tutorial will walk you through the process of transforming your barplots into
+rainclouds, and also show you how to customize your rainclouds for various options such
+as ordinal or repeated measures data.
+
+If you'd like to see this notebook with the output rendered, checkout
+[raincloud_tutorial_r.md](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.md)
+or
+[raincloud_tutorial_r.pdf](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.pdf).
 
 First, we'll run the included "R_rainclouds" script, which will set-up the split-half violin option in ggplot, as well as simulate some data for our figures:
 
@@ -44,12 +47,16 @@ source("simulateData.R")
 w = 6
 h = 3
 # Make the figure folder if it doesn't exist yet
-dir.create('../figs/tutorial_R/', showWarnings = FALSE)
+dir.create('./figs2/', showWarnings = FALSE)
 
 head(summary_simdat)
 ```
 
-The function gives us two groups of N = 250 observations each; both have similar means and SDs, but group one is drawn from an exponential distribution. Now we'll plot a basic barplot for our simulated date. Note that we're using the 'cowplot' theme to produce simple, uncluttered plots - you should setup your own theme or other customization options as desired:
+The function gives us two groups of N = 250 observations each; both have similar means
+and SDs, but group one is drawn from an exponential distribution. Now we'll plot a
+basic barplot for our simulated date. Note that we're using the 'cowplot' theme to
+produce simple, uncluttered plots - you should setup your own theme or other
+customization options as desired:
 
 ```{r barplot, include = TRUE, echo = TRUE}
 #Barplot
@@ -61,12 +68,15 @@ p1 <- ggplot(summary_simdat, aes(x = group, y = score_mean, fill = group))+
   ylab('Score')+xlab('Group')+theme_cowplot()+
   ggtitle("Figure 1: Barplot +/- SEM")
 
-ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
+ggsave('./figs2/1Barplot.png', width = w, height = h)
 ```
 
 Lets look at the plot in line too :)
 
-(If you see the error `Error in grid.newpage() : could not open file ...` when running this tutorial in binder: don't worry! RStudio in binder is just a little slower than you'd hope to present the plot to you inline. Wait a couple of seconds and then run the cell again and the image will appear.)
+(If you see the error `Error in grid.newpage() : could not open file ...` when running
+this tutorial in binder: don't worry! RStudio in binder is just a little slower than
+you'd hope to present the plot to you inline. Wait a couple of seconds and then run the
+cell again and the image will appear.)
 
 ```{r figure 1}
 p1
@@ -82,7 +92,7 @@ p2 <- ggplot(simdat,aes(x=group,y=score))+
   ylab('Score')+xlab('Group')+theme_cowplot()+
   ggtitle('Figure 2: Basic Rainclouds or Little Prince Plot')
 
-ggsave('../figs/tutorial_R/2basic.png', width = w, height = h)
+ggsave('./figs2/2basic.png', width = w, height = h)
 ```
 
 ```{r figure 2}
@@ -99,7 +109,7 @@ p3 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE)+
   ggtitle('Figure 3: The Basic Raincloud with Colour')
 
-ggsave('../figs/tutorial_R/3pretty.png', width = w, height = h)
+ggsave('./figs2/3pretty.png', width = w, height = h)
 ```
 
 ```{r figure 3}
@@ -116,7 +126,7 @@ p4 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE) +
   ggtitle('Figure 4: Unsmooth Rainclouds')
 
-ggsave('../figs/tutorial_R/4unsmooth.png', width = w, height = h)
+ggsave('./figs2/4unsmooth.png', width = w, height = h)
 ```
 
 ```{r figure 4}
@@ -135,7 +145,7 @@ p5 <- ggplot(simdat,aes(x=group,y=score, fill = group))+
   ylab('Score')+xlab('Group')+coord_flip()+theme_cowplot()+guides(fill = FALSE, colour = FALSE) +
   ggtitle("Figure 5: Raincloud Plot w/Boxplots")
 
-ggsave('../figs/tutorial_R/5boxplots.png', width = w, height = h)
+ggsave('./figs2/5boxplots.png', width = w, height = h)
 ```
 
 ```{r figure 5}
@@ -155,7 +165,7 @@ p6 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 6: Change in Colour Palette")
 
-ggsave('../figs/tutorial_R/6boxplots.png', width = w, height = h)
+ggsave('./figs2/6boxplots.png', width = w, height = h)
 ```
 
 ```{r figure 6}
@@ -176,7 +186,7 @@ p7 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 7: Raincloud Plot with Mean ± 95% CI")
 
-ggsave('../figs/tutorial_R/7meanplot.png', width = w, height = h)
+ggsave('./figs2/7meanplot.png', width = w, height = h)
 ```
 
 ```{r figure 7}
@@ -219,7 +229,7 @@ title <- ggdraw() +
 
 all_plot_final <- plot_grid(title, all_plot, ncol = 1, rel_heights = c(0.1, 1)) # rel_heights values control title margins
 
-ggsave('../figs/tutorial_R/8allplot.png', width = w, height = h)
+ggsave('./figs2/8allplot.png', width = w, height = h)
 ```
 
 ```{r figure 8}
@@ -242,7 +252,7 @@ p9 <- ggplot(simdat,aes(x=group,y=score, fill = group, colour = group))+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 9: Complex Raincloud Plots with Facet Wrap")
 
-ggsave('../figs/tutorial_R/9facetplot.png', width = w, height = h)
+ggsave('./figs2/9facetplot.png', width = w, height = h)
 ```
 
 ```{r figure 9}
@@ -277,7 +287,7 @@ p10 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 10: Repeated Measures Factorial Rainclouds")
 
-ggsave('../figs/tutorial_R/10repanvplot.png', width = w, height = h)
+ggsave('./figs2/10repanvplot.png', width = w, height = h)
 ```
 
 ```{r figure 10}
@@ -300,7 +310,7 @@ p11 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 11: Repeated Measures - Factorial (Extended)")
 
-ggsave('../figs/tutorial_R/11repanvplot2.png', width = w, height = h)
+ggsave('./figs2/11repanvplot2.png', width = w, height = h)
 ```
 
 ```{r figure 11}
@@ -324,7 +334,7 @@ p12 <- ggplot(rep_data, aes(x = group, y = score, fill = time)) +
   ggtitle("Figure 12: Repeated Measures - Factorial (Extended)") +
   coord_flip()
 
-ggsave('../figs/tutorial_R/12repanvplot3.png', width = w, height = h)
+ggsave('./figs2/12repanvplot3.png', width = w, height = h)
 ```
 
 ```{r figure 12}
