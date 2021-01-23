@@ -65,7 +65,7 @@ customization options as desired:
 #Barplot
 p1 <- ggplot(summary_simdat, aes(x = group, y = score_mean, fill = group))+
   geom_bar(stat = "identity", width = .8)+
-  geom_errorbar(aes(ymin = score_mean - se, ymax = score_mean+se), width = .2)+
+  geom_errorbar(aes(ymin = score_mean - sem, ymax = score_mean + sem), width = .2)+
   guides(fill=FALSE)+
   ylim(0, 80)+
   ylab('Score')+xlab('Group')+theme_cowplot()+
@@ -308,7 +308,7 @@ p11 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   geom_boxplot(aes(x = time, y = score, fill = group),outlier.shape = NA, alpha = .5, width = .1, colour = "black")+
   geom_line(data = sumrepdat, aes(x = as.numeric(time)+.1, y = score_mean, group = group, colour = group), linetype = 3)+
   geom_point(data = sumrepdat, aes(x = as.numeric(time)+.1, y = score_mean, group = group, colour = group), shape = 18) +
-  geom_errorbar(data = sumrepdat, aes(x = as.numeric(time)+.1, y = score_mean, group = group, colour = group, ymin = score_mean-se, ymax = score_mean+se), width = .05)+
+  geom_errorbar(data = sumrepdat, aes(x = as.numeric(time)+.1, y = score_mean, group = group, colour = group, ymin = score_mean - sem, ymax = score_mean + sem), width = .05)+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 11: Repeated Measures - Factorial (Extended)")
@@ -331,7 +331,7 @@ p12 <- ggplot(rep_data, aes(x = group, y = score, fill = time)) +
   geom_boxplot(aes(x = group, y = score, fill = time),outlier.shape = NA, alpha = .5, width = .1, colour = "black")+
   geom_line(data = sumrepdat, aes(x = as.numeric(group)+.1, y = score_mean, group = time, colour = time), linetype = 3)+
   geom_point(data = sumrepdat, aes(x = as.numeric(group)+.1, y = score_mean, group = time, colour = time), shape = 18) +
-  geom_errorbar(data = sumrepdat, aes(x = as.numeric(group)+.1, y = score_mean, group = time, colour = time, ymin = score_mean-se, ymax = score_mean+se), width = .05)+
+  geom_errorbar(data = sumrepdat, aes(x = as.numeric(group)+.1, y = score_mean, group = time, colour = time, ymin = score_mean - sem, ymax = score_mean + sem), width = .05)+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 12: Repeated Measures - Factorial (Extended)") +
