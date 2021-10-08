@@ -159,7 +159,7 @@ if box_on
         h{6} = line([Y(1) Y(4)], [(-yl(2) * box_dodge_amount) (-yl(2) * box_dodge_amount)], 'col', bxcl, 'LineWidth', line_width);
     else
         box_pos = [Y(1) -yl(2)/2-(wdth * 0.5) Y(2)-Y(1) wdth];
-        % mean line
+        % median line
         h{4} = line([Y(3) Y(3)], [-yl(2)/2-(wdth * 0.5) -yl(2) / 2 + (wdth * 0.5)], 'col', bxcl, 'LineWidth', line_width);
         
         % whiskers
