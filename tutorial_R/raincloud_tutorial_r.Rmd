@@ -25,9 +25,15 @@ if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
 ```
 
 ## How to make it rain
-This tutorial will walk you through the process of transforming your barplots into rainclouds, and also show you how to customize your rainclouds for various options such as ordinal or repeated measures data.
 
-If you'd like to see this notebook with the output rendered, checkout [raincloud_tutorial_r.md](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.md) or [raincloud_tutorial_r.pdf](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.pdf).
+This tutorial will walk you through the process of transforming your barplots into
+rainclouds, and also show you how to customize your rainclouds for various options such
+as ordinal or repeated measures data.
+
+If you'd like to see this notebook with the output rendered, checkout
+[raincloud_tutorial_r.md](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.md)
+or
+[raincloud_tutorial_r.pdf](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/tutorial_R/raincloud_tutorial_r.pdf).
 
 First, we'll run the included "R_rainclouds" script, which will set-up the split-half violin option in ggplot, as well as simulate some data for our figures:
 
@@ -49,13 +55,17 @@ dir.create('../figs/tutorial_R/', showWarnings = FALSE)
 head(summary_simdat)
 ```
 
-The function gives us two groups of N = 250 observations each; both have similar means and SDs, but group one is drawn from an exponential distribution. Now we'll plot a basic barplot for our simulated date. Note that we're using the 'cowplot' theme to produce simple, uncluttered plots - you should setup your own theme or other customization options as desired:
+The function gives us two groups of N = 250 observations each; both have similar means
+and SDs, but group one is drawn from an exponential distribution. Now we'll plot a
+basic barplot for our simulated date. Note that we're using the 'cowplot' theme to
+produce simple, uncluttered plots - you should setup your own theme or other
+customization options as desired:
 
 ```{r barplot, include = TRUE, echo = TRUE}
 #Barplot
 p1 <- ggplot(summary_simdat, aes(x = group, y = score_mean, fill = group))+
   geom_bar(stat = "identity", width = .8)+
-  geom_errorbar(aes(ymin = score_mean - se, ymax = score_mean+se), width = .2)+
+  geom_errorbar(aes(ymin = score_mean - sem, ymax = score_mean + sem), width = .2)+
   guides(fill=FALSE)+
   ylim(0, 80)+
   ylab('Score')+xlab('Group')+theme_cowplot()+
@@ -66,7 +76,10 @@ ggsave('../figs/tutorial_R/1Barplot.png', width = w, height = h)
 
 Lets look at the plot in line too :)
 
-(If you see the error `Error in grid.newpage() : could not open file ...` when running this tutorial in binder: don't worry! RStudio in binder is just a little slower than you'd hope to present the plot to you inline. Wait a couple of seconds and then run the cell again and the image will appear.)
+(If you see the error `Error in grid.newpage() : could not open file ...` when running
+this tutorial in binder: don't worry! RStudio in binder is just a little slower than
+you'd hope to present the plot to you inline. Wait a couple of seconds and then run the
+cell again and the image will appear.)
 
 ```{r figure 1}
 p1
@@ -295,7 +308,7 @@ p11 <- ggplot(rep_data, aes(x = time, y = score, fill = group)) +
   geom_boxplot(aes(x = time, y = score, fill = group),outlier.shape = NA, alpha = .5, width = .1, colour = "black")+
   geom_line(data = sumrepdat, aes(x = as.numeric(time)+.1, y = score_mean, group = group, colour = group), linetype = 3)+
   geom_point(data = sumrepdat, aes(x = as.numeric(time)+.1, y = score_mean, group = group, colour = group), shape = 18) +
-  geom_errorbar(data = sumrepdat, aes(x = as.numeric(time)+.1, y = score_mean, group = group, colour = group, ymin = score_mean-se, ymax = score_mean+se), width = .05)+
+  geom_errorbar(data = sumrepdat, aes(x = as.numeric(time)+.1, y = score_mean, group = group, colour = group, ymin = score_mean - sem, ymax = score_mean + sem), width = .05)+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 11: Repeated Measures - Factorial (Extended)")
@@ -318,7 +331,7 @@ p12 <- ggplot(rep_data, aes(x = group, y = score, fill = time)) +
   geom_boxplot(aes(x = group, y = score, fill = time),outlier.shape = NA, alpha = .5, width = .1, colour = "black")+
   geom_line(data = sumrepdat, aes(x = as.numeric(group)+.1, y = score_mean, group = time, colour = time), linetype = 3)+
   geom_point(data = sumrepdat, aes(x = as.numeric(group)+.1, y = score_mean, group = time, colour = time), shape = 18) +
-  geom_errorbar(data = sumrepdat, aes(x = as.numeric(group)+.1, y = score_mean, group = time, colour = time, ymin = score_mean-se, ymax = score_mean+se), width = .05)+
+  geom_errorbar(data = sumrepdat, aes(x = as.numeric(group)+.1, y = score_mean, group = time, colour = time, ymin = score_mean - sem, ymax = score_mean + sem), width = .05)+
   scale_colour_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   ggtitle("Figure 12: Repeated Measures - Factorial (Extended)") +
