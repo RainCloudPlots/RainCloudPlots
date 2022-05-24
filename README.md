@@ -85,7 +85,7 @@ In the six months since we published our [preprint at PeerJ](https://peerj.com/p
 You can read more about RainCloud plots in the following blog posts:
 
 * The original [Introducing RainCloud Plots](https://micahallen.org/2018/03/15/introducing-raincloud-plots/) post by [Micah Allen](https://micahallen.org/) in March 2018.
-* A great [summary of our preprint](https://prelights.biologists.com/highlights/raincloud-plots-multi-platform-tool-robust-data-visualization/) is at [Prelights](https://prelights.biologists.com/), an inititative to showcase the best preprints in the biological sciences.
+* A great [summary of our preprint](https://prelights.biologists.com/highlights/raincloud-plots-multi-platform-tool-robust-data-visualization/) is at [Prelights](https://prelights.biologists.com/), an initiative to showcase the best preprints in the biological sciences.
 * Raincloud Plots were included in [Helena Jambor's](https://helenajambor.wordpress.com/) blog post ["Pick'n'mix plots"](https://helenajambor.wordpress.com/2018/08/28/pick-n-mix-plots/) which compares a few different visualisation types.
 
 ## Installing and running on your local machine
@@ -96,7 +96,7 @@ The easiest way to get the code you need is to [download](https://github.com/Rai
 
 You'll notice that we've included three copies of the sampled data files, one for each language. This is to hopefully make it as easy for you as possible to run the tutorials and edit the code yourself.
 
-Once you have the repository downloaded and unzipped, jump to the instructions for setting up the enviroment you're most comfortable with: [python](#python-environment), [R](#r-environment) or [matlab](#matlab-environment).
+Once you have the repository downloaded and unzipped, jump to the instructions for setting up the environment you're most comfortable with: [python](#python-environment), [R](#r-environment) or [matlab](#matlab-environment).
 
 ### Python environment
 
@@ -125,7 +125,7 @@ This will create (and activate) a conda environment with all the the specific pa
 A little note about jupyter notebooks and conda environments. If you have installed `nb_conda` as described above, you'll be able to choose the `rainpy` kernel in your jupyter notebook once it's open. Don't forget to switch from the default kernel when you open up the notebook.
 
 
-From inside the `tutorial_python` direcotry, open up a jupyter notebook server by typing:
+From inside the `tutorial_python` directory, open up a jupyter notebook server by typing:
 
 ```
 jupyter notebook
