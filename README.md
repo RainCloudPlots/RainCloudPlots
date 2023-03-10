@@ -19,7 +19,7 @@
 
 ## Making Rainclouds in R
 
-### R package - `ggrain`
+### `ggrain` - R package
 
 Check out the [Github](https://github.com/njudd/ggrain) and the [vignette](https://www.njudd.com/raincloud-ggrain/) for more details!
 
@@ -37,7 +37,7 @@ ggplot(iris, aes(Species, Sepal.Length, fill = Species)) +
 ## Making Rainclouds in Python
 
 
-### Python package - `PtitPrince`
+### `PtitPrince` - Python package
 
 Check out the [Github](https://github.com/pog87/PtitPrince) and the [tutorial](https://github.com/pog87/PtitPrince/blob/master/tutorial_python/raincloud_tutorial_python.ipynb) for more details!
 
