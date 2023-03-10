@@ -6,9 +6,6 @@
 
 
 ***Code and tutorials to visualise your data in a way that is both beautiful *and* statistically valid.***
-
-![](images/10repanvplot_cropped.jpg)
-
 ### Table of contents
 
 
@@ -16,6 +13,9 @@
 * [Making Rainclouds in Python with PtitPrince](#making-rainclouds-in-python)
 * [Attribution](#attribution)
 * [Feedback](#feedback)
+
+
+![](images/10repanvplot_cropped.jpg)
 
 ## Making Rainclouds in R
 
