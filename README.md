@@ -9,8 +9,8 @@
 ### Table of contents
 
 
-* [Making Rainclouds in R with ggrain](#making-rainclouds-in-r)
-* [Making Rainclouds in Python with PtitPrince](#making-rainclouds-in-python)
+* [Making Rainclouds in R](#making-rainclouds-in-r)
+* [Making Rainclouds in Python](#making-rainclouds-in-python)
 * [Attribution](#attribution)
 * [Feedback](#feedback)
 
@@ -75,17 +75,10 @@ scale_x_continuous(breaks=c(1,2), labels=c("Group1", "Group2"), limits=c(0, 3)) 
 raincloud_1_h
 ```
 
-### Option 3
-
-
-
-
-
-
 ## Making Rainclouds in Python
 
 
-### `PtitPrince` - Python package
+### [`PtitPrince`](https://github.com/pog87/PtitPrince) - Python package
 
 Check out the [Github](https://github.com/pog87/PtitPrince) and the [tutorial](https://github.com/pog87/PtitPrince/blob/master/tutorial_python/raincloud_tutorial_python.ipynb) for more details!
 
@@ -115,7 +108,11 @@ If you use rainclouds please cite us!
 
 #### Paper
 
-> Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 2; peer review: 2 approved]. Wellcome Open Res 2021, 4:63. DOI: [10.12688/wellcomeopenres.15191.2](https://doi.org/10.12688/wellcomeopenres.15191.2)
+<pre>
+- Allen, M., Poggiali, D., Whitaker, K., Marshall, T. R., van Langen, J., & Kievit, R. A.
+    Raincloud plots: a multi-platform tool for robust data visualization [version 2; peer review: 2 approved] 
+    <b>Wellcome Open Research</b> 2021, 4:63. <a href="https://doi.org/10.12688/wellcomeopenres.15191.2">https://doi.org/10.12688/wellcomeopenres.15191.2</a>
+</pre>
 
 
 ## Feedback
