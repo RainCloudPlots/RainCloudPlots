@@ -48,6 +48,7 @@ ggplot(iris, aes(Species, Sepal.Length, fill = Species)) +
 ```r
 remotes::install_github('jorvlan/raincloudplots')
 ```
+
 #### Plot
 ```r
 library(raincloudplots)
@@ -80,6 +81,7 @@ raincloud_1_h
 
 
 
+
 ## Making Rainclouds in Python
 
 
@@ -107,22 +109,13 @@ pt.RainCloud(x = dx, y = dy, data = df, palette = pal, bw = sigma,
 
 We really hope you find these tutorials helpful and want to use the code in your next paper or presentation!
 
-This repository is made available under the [MIT license](LICENSE) which means you're welcome to use and remix the contents so long as you credit the creators: [Micah Allen](https://twitter.com/micahgallen?lang=en), [Davide Poggiali](https://twitter.com/dav1d3p0g?lang=en), [Kirstie Whitaker](https://twitter.com/kirstie_j?lang=en), [Tom Rhys Marshall](https://twitter.com/tomrhysmarshall?lang=en), [Jordy van Langen](https://twitter.com/jordyvanlangen?lang=en), [Nicholas Judd](https://njudd.com) and [Rogier Kievit](https://www.rogierkievit.com/).
+This repository is made available under the [MIT license](LICENSE) which means you're welcome to use and remix the contents so long as you credit the creators: [Micah Allen](https://twitter.com/micahgallen?lang=en), [Davide Poggiali](https://twitter.com/dav1d3p0g?lang=en), [Kirstie Whitaker](https://twitter.com/kirstie_j?lang=en), [Tom Rhys Marshall](https://twitter.com/tomrhysmarshall?lang=en), [Jordy van Langen](https://mas.to/@jordyvanlangen), [Nicholas Judd](https://njudd.com) and [Rogier Kievit](https://www.rogierkievit.com/).
 
 If you use rainclouds please cite us!
 
-#### Preprint
+#### Paper
 
 > Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 2; peer review: 2 approved]. Wellcome Open Res 2021, 4:63. DOI: [10.12688/wellcomeopenres.15191.2](https://doi.org/10.12688/wellcomeopenres.15191.2)
-
-#### ggrain package
-
-> Judd, N., van Langen, J., Allen, M., & Kievit, R.A.
-    <i>ggrain: A Rainclouds Geom for 'ggplot2'.</i>
-    R package version 0.0.3.
-    <b>CRAN</b> 2023,
-    <a href="https://CRAN.R-project.org/package=ggrain">https://CRAN.R-project.org/package=ggrain</a>
-
 
 
 ## Feedback
@@ -134,3 +127,5 @@ Just scroll to the bottom of that page (or click on the link at the side) and le
 You can also open an issue or submit a pull request to this repository if you find a bug! If it is a package specific question please make an issue on the [`ggrain`](https://github.com/njudd/ggrain/issues) or [`PtitPrince`](https://github.com/pog87/PtitPrince/issues) repositories.
 
 Just check out our [contributing guidelines](CONTRIBUTING.md) for help getting started.
+
+Happy plotting!
