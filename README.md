@@ -29,7 +29,7 @@
 
 ### [`ggrain`](https://cran.r-project.org/web/packages/ggrain/index.html) - R package
 <img src="https://github.com/jorvlan/open-visualizations/blob/master/R/package_figures/Rplot03.png" width="200" height="190" align="right"/>
-l
+
 Check out the[`ggrain` Github](https://github.com/njudd/ggrain) and the [vignette](https://www.njudd.com/raincloud-ggrain/) for more details + tutorials!
 
 #### Install
