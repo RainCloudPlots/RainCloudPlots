@@ -1,6 +1,6 @@
 # Raincloud Plots
 
-[![Paper](https://img.shields.io/badge/Paper-raincloudplots-orange.svg?colorB=E91E63)](https://wellcomeopenresearch.org/articles/4-63)
+[![Paper](https://img.shields.io/badge/Paper-raincloudplots-blueviolet.svg?colorB=E91E63)](https://wellcomeopenresearch.org/articles/4-63)
 [![r-package](https://img.shields.io/badge/R%20package-ggrain-brightgreen)](https://cran.r-project.org/web/packages/ggrain/index.html)
 [![r-package](https://img.shields.io/badge/R%20package-raincloudplots-brightgreen)](https://github.com/jorvlan/raincloudplots)
 [![python-package](https://img.shields.io/badge/Python%20package-PtitPrince-red)](https://github.com/pog87/PtitPrince)
