@@ -19,17 +19,12 @@
 
 ## Making Rainclouds in R
 
-There are now 3 ways in which you can use our Raincloud Plots tools:
-
-through our initial raincloudplots package
-through the newest R-package ggrain
-
-## Option 1:
+### Option 1
 
 ### `ggrain` - R package
 <img src="https://github.com/jorvlan/open-visualizations/blob/master/R/package_figures/Rplot03.png" width="200" height="190" align="right"/>
 
-Check out the [Github](https://github.com/njudd/ggrain) and the [vignette](https://www.njudd.com/raincloud-ggrain/) for more details!
+Check out the[`ggrain` Github](https://github.com/njudd/ggrain) and the [vignette](https://www.njudd.com/raincloud-ggrain/) for more details + tutorials!
 
 #### Install
 ```install.packages('ggrain')```
@@ -42,9 +37,44 @@ ggplot(iris, aes(Species, Sepal.Length, fill = Species)) +
 	geom_rain()
 ```
 
-## Option 2:
+### Option 2
 
 ### `raincloudplots` - R package
+<img src="https://github.com/jorvlan/open-visualizations/blob/master/R/package_figures/rainclouds_highres.png" width="150" height="160" align="right"/>
+
+#### Install
+```
+remotes::install_github('jorvlan/raincloudplots')
+```
+#### Plot
+```
+library(raincloudplots)
+
+df_1x1 <- data_1x1(
+  array_1 = iris$Sepal.Length[1:50],
+  array_2 = iris$Sepal.Length[51:100],
+  jit_distance = .09,
+  jit_seed = 321)
+  
+raincloud_1_h <- raincloud_1x1(
+  data = df_1x1, 
+  colors = (c('dodgerblue','darkorange')), 
+  fills = (c('dodgerblue','darkorange')), 
+  size = 1, 
+  alpha = .6, 
+  ort = 'h') +
+
+scale_x_continuous(breaks=c(1,2), labels=c("Group1", "Group2"), limits=c(0, 3)) +
+  xlab("Groups") + 
+  ylab("Score") +
+  theme_classic()
+
+raincloud_1_h
+```
+
+### Option 3
+
+
 
 
 
