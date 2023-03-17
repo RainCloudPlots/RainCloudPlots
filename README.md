@@ -7,7 +7,7 @@
 [![DOI](https://zenodo.org/badge/144041501.svg)](https://zenodo.org/badge/latestdoi/144041501)
 [![license](https://img.shields.io/github/license/RainCloudPlots/RainCloudPlots)](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/LICENSE)
 [![stars](https://img.shields.io/github/stars/RainCloudPlots/RainCloudPlots?style=social)](https://github.com/RainCloudPlots/RainCloudPlots)
-[![citations](https://img.shields.io/badge/scholar-%230077B5.svg?&style=for-the-badge&logo=scholar&logoColor=white&color=00acee)
+[![citations](https://img.shields.io/badge/Scholar-Citations-9cf)](https://scholar.google.com/scholar?oi=bibs&hl=nl&cites=5350775741811597776,16731759977159771682&as_sdt=5)
 
 
 
