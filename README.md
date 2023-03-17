@@ -88,7 +88,7 @@ raincloud_1_h
 Check out the [Github](https://github.com/pog87/PtitPrince) and the [tutorial](https://github.com/pog87/PtitPrince/blob/master/tutorial_python/raincloud_tutorial_python.ipynb) for more details!
 
 #### Install
-```py
+```python
 pip install ptitprince
 ```
 
