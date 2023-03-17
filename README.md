@@ -1,6 +1,6 @@
 # Raincloud Plots
 
-[![Paper](https://img.shields.io/badge/Paper-Raincloud Plots-orange.svg?colorB=E91E63)](https://wellcomeopenresearch.org/articles/4-63)
+[![Paper](https://img.shields.io/badge/Paper-raincloudplots-orange.svg?colorB=E91E63)](https://wellcomeopenresearch.org/articles/4-63)
 [![Binder](https://img.shields.io/badge/R%20package-ggrain-brightgreen)](https://github.com/njudd/ggrain)
 [![Binder](https://img.shields.io/badge/Python%20package-PtitPrince-red)](https://github.com/pog87/PtitPrince)
 [![DOI](https://zenodo.org/badge/144041501.svg)](https://zenodo.org/badge/latestdoi/144041501)
