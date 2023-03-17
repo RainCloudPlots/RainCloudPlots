@@ -21,16 +21,18 @@
 
 ### Option 1
 
-### `ggrain` - R package
+### [`ggrain`](https://cran.r-project.org/web/packages/ggrain/index.html) - R package
 <img src="https://github.com/jorvlan/open-visualizations/blob/master/R/package_figures/Rplot03.png" width="200" height="190" align="right"/>
 
 Check out the[`ggrain` Github](https://github.com/njudd/ggrain) and the [vignette](https://www.njudd.com/raincloud-ggrain/) for more details + tutorials!
 
 #### Install
-```install.packages('ggrain')```
+```r
+install.packages('ggrain')
+```
 
 #### Plot
-```
+```r
 library(ggrain)
 
 ggplot(iris, aes(Species, Sepal.Length, fill = Species)) + 
@@ -47,7 +49,7 @@ ggplot(iris, aes(Species, Sepal.Length, fill = Species)) +
 remotes::install_github('jorvlan/raincloudplots')
 ```
 #### Plot
-```
+```r
 library(raincloudplots)
 
 df_1x1 <- data_1x1(
@@ -86,7 +88,9 @@ raincloud_1_h
 Check out the [Github](https://github.com/pog87/PtitPrince) and the [tutorial](https://github.com/pog87/PtitPrince/blob/master/tutorial_python/raincloud_tutorial_python.ipynb) for more details!
 
 #### Install
-```pip install ptitprince```
+```python
+pip install ptitprince
+```
 
 #### Plot
 ```
