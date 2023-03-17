@@ -93,7 +93,7 @@ pip install ptitprince
 ```
 
 #### Plot
-```
+```python
 import sys
 sys.path.append('../ptitprince/')
 import PtitPrince as pt
