@@ -42,7 +42,7 @@ ggplot(iris, aes(Species, Sepal.Length, fill = Species)) +
 ### Option 2
 
 ### `raincloudplots` - R package
-<img src="https://github.com/jorvlan/open-visualizations/blob/master/R/package_figures/rainclouds_highres.png" width="170" height="180" align="right"/>
+<img src="https://github.com/jorvlan/open-visualizations/blob/master/R/package_figures/rainclouds_highres.png" width="150" height="160" align="right"/>
 
 #### Install
 ```r
