@@ -19,7 +19,15 @@
 
 ## Making Rainclouds in R
 
+There are now 3 ways in which you can use our Raincloud Plots tools:
+
+through our initial raincloudplots package
+through the newest R-package ggrain
+
+## Option 1:
+
 ### `ggrain` - R package
+<img src="https://github.com/jorvlan/open-visualizations/blob/master/R/package_figures/Rplot03.png" width="200" height="190" align="right"/>
 
 Check out the [Github](https://github.com/njudd/ggrain) and the [vignette](https://www.njudd.com/raincloud-ggrain/) for more details!
 
@@ -33,6 +41,12 @@ library(ggrain)
 ggplot(iris, aes(Species, Sepal.Length, fill = Species)) + 
 	geom_rain()
 ```
+
+## Option 2:
+
+### `raincloudplots` - R package
+
+
 
 ## Making Rainclouds in Python
 
