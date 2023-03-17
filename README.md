@@ -5,7 +5,7 @@
 [![r-package](https://img.shields.io/badge/R%20package-raincloudplots-brightgreen)](https://github.com/jorvlan/raincloudplots)
 [![python-package](https://img.shields.io/badge/Python%20package-PtitPrince-red)](https://github.com/pog87/PtitPrince)
 [![DOI](https://zenodo.org/badge/144041501.svg)](https://zenodo.org/badge/latestdoi/144041501)
-[![citations](https://scholar.google.com/scholar?oi=bibs&hl=nl&cites=5350775741811597776,16731759977159771682&as_sdt=5)](https://scholar.google.com/citations?view_op=view_citation&hl=nl&user=gsSpOgkAAAAJ&citation_for_view=gsSpOgkAAAAJ:ufrVoPGSRksC)
+[![citations]
 [![stars](https://img.shields.io/github/stars/RainCloudPlots/RainCloudPlots?style=social)](https://github.com/RainCloudPlots/RainCloudPlots)
 
 
