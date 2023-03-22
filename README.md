@@ -1,13 +1,10 @@
 # Raincloud Plots
 
 [![Paper](https://img.shields.io/badge/Paper-Raincloud%20Plots-blueviolet)](https://wellcomeopenresearch.org/articles/4-63)
+[![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/LICENSE)
 [![r-package](https://img.shields.io/badge/R%20package-ggrain-brightgreen)](https://cran.r-project.org/web/packages/ggrain/index.html)
 [![r-package](https://img.shields.io/badge/R%20package-raincloudplots-brightgreen)](https://github.com/jorvlan/raincloudplots)
 [![python-package](https://img.shields.io/badge/Python%20package-PtitPrince-red)](https://github.com/pog87/PtitPrince)
-[![DOI](https://zenodo.org/badge/144041501.svg)](https://zenodo.org/badge/latestdoi/144041501)
-[![license](https://img.shields.io/github/license/RainCloudPlots/RainCloudPlots)](https://github.com/RainCloudPlots/RainCloudPlots/blob/master/LICENSE)
-[![stars](https://img.shields.io/github/stars/RainCloudPlots/RainCloudPlots?style=social)](https://github.com/RainCloudPlots/RainCloudPlots)
-[![citations](https://img.shields.io/badge/Scholar-Citations-9cf)](https://scholar.google.com/scholar?oi=bibs&hl=nl&cites=5350775741811597776,16731759977159771682&as_sdt=5)
 
 
 
