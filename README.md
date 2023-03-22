@@ -119,7 +119,7 @@ If you use rainclouds please cite us!
 ## Feedback
 
 We'd love to hear your thoughts and any feedback you have.
-The best place to leave comments on the paper and the project in general is at the [Wellcome Open Research preprint](https://doi.org/10.12688/wellcomeopenres.15191.2).
+The best place to leave comments on the paper and the project in general is at the [Wellcome Open Research paper](https://doi.org/10.12688/wellcomeopenres.15191.2).
 Just scroll to the bottom of that page (or click on the link at the side) and leave us feedback or ask a question.
 
 You can also open an issue or submit a pull request to this repository if you find a bug! If it is a package specific question please make an issue on the [`ggrain`](https://github.com/njudd/ggrain/issues) or [`PtitPrince`](https://github.com/pog87/PtitPrince/issues) repositories.
