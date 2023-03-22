@@ -92,9 +92,7 @@ pip install ptitprince
 
 #### Plot
 ```python
-import sys
-sys.path.append('../ptitprince/')
-import PtitPrince as pt
+import ptitprince as pt
 
 pt.RainCloud(x = dx, y = dy, data = df, palette = pal, bw = sigma,
                  width_viol = .6, ax = ax, orient = ort)
