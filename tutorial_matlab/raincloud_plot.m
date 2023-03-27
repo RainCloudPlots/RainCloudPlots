@@ -171,6 +171,6 @@ if box_on
     set(h{3}, 'EdgeColor', bxcl)
     set(h{3}, 'LineWidth', line_width);
     %set(h{3}, 'FaceColor', bxfacecl);
-    % could also set 'FaceColor' here, etc
-    ylim('tickaligned') % set the ylim to capture all data
+    
+    ylim('manual') % set the ylim to capture all data
 end
